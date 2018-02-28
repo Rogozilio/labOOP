@@ -1,6 +1,20 @@
-#include "lab1.h"
+#include "lab1\lab1.h"
 #include <iostream>
+#include <string>
 using namespace std;
+
+int CheckSymbol()
+{
+	string n;
+	int m;
+	do
+	{
+		cin >> n;
+		if (n == "0") { return 0; }
+		m = atoi(n.c_str());
+	} while (m == 0);
+	return m;
+}
 
 void main()
 {
@@ -23,7 +37,7 @@ void main()
 			<< "12) явное и не€вное преобразование" << endl
 			<< "0) ¬ыход из программы" << endl
 			<< "¬ведите номер функции дл€ ее выполнени€ ";
-		cin >> key;
+		key = CheckSymbol();
 
 		switch (key)
 		{
