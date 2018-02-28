@@ -1,6 +1,20 @@
-#include "lab1.h"
+#include "lab1\lab1.h"
 #include <iostream>
+#include <string>
 using namespace std;
+
+int CheckSymbol()
+{
+	string n;
+	int m;
+	do
+	{
+		cin >> n;
+		if (n == "0") { return 0; }
+		m = atoi(n.c_str());
+	} while (m == 0);
+	return m;
+}
 
 void main()
 {
@@ -9,7 +23,7 @@ void main()
 	bool isMenu = true;
 	while (isMenu)
 	{
-		cout << "1) Hello World" << endl
+		cout << "1) Hello World " << endl
 			<< "2) Сумма целочисленных переменных " << endl
 			<< "3) Деление чисел" << endl
 			<< "4) Ввод/Вывод переменных" << endl
@@ -23,7 +37,7 @@ void main()
 			<< "12) Явное и неявное преобразование" << endl
 			<< "0) Выход из программы" << endl
 			<< "Введите номер функции для ее выполнения ";
-		cin >> key;
+		key = CheckSymbol();
 
 		switch (key)
 		{

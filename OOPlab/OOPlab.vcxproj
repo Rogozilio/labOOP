@@ -151,9 +151,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="lab1.h" />
+    <ClCompile Include="lab1\lab1.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="lab1.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lab1\lab1.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
