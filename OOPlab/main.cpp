@@ -1,5 +1,5 @@
 #include "lab1/lab1.h"
-#include "lab2.h"
+#include "lab2/lab2.h"
 #include <iostream>
 #include <string>
 #include <ctime>
@@ -284,6 +284,8 @@ int main()
 				cout << endl;
 			}
 			MultiplyMatrices(matr1, matr2, matrSize1, matrSize2, matrSize3);
+			delete matr1;
+			delete matr2;
 		}
 		case 0:
 		{

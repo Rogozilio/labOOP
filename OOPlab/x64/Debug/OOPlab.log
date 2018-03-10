@@ -1,1 +1,7 @@
-﻿  OOPlab.vcxproj -> C:\Users\чебуратор\source\repos\labOOP\x64\Debug\OOPlab.exe
+﻿  lab2.cpp
+  main.cpp
+c:\users\чебуратор\source\repos\laboop\ooplab\main.cpp(25): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  Создание кода...
+c:\users\чебуратор\source\repos\laboop\ooplab\lab2\lab2.cpp(12): warning C4715: MakeCalculation: значение возвращается не при всех путях выполнения
+c:\users\чебуратор\source\repos\laboop\ooplab\lab2\lab2.cpp(42): warning C4715: GuessRandomNumber: значение возвращается не при всех путях выполнения
+  OOPlab.vcxproj -> C:\Users\чебуратор\source\repos\labOOP\x64\Debug\OOPlab.exe
