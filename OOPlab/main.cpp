@@ -1,8 +1,10 @@
 #include "lab1/lab1.h"
 #include "lab2/lab2.h"
+#include "lab3/lab3.h"
 #include <iostream>
 #include <string>
 #include <ctime>
+#include <cstdio>
 
 using namespace std;
 
@@ -21,6 +23,12 @@ int CheckSymbol()
 
 int main()
 {
+	enum MenuEnum
+		{
+			GetLengthEnum = 1, ConcatenateEnum, GetSubstringEnum,
+			FindSubstringEnum, UppercaseEnum, LowercaseEnum,
+			SplitFilenameEnum, ReplaceTabsOnSpacesEnum, ReplaceSpacesOnTabsEnum
+		};
 	setlocale(LC_ALL, "rus");
 	srand(time(NULL));
 	int key;
@@ -87,7 +95,7 @@ int main()
 		default:
 			cout << "Повторите ввод  ";
 			break;
-		}*/
+		}
 
 		cout << "1) Hello World " << endl
 			<< "2) Калькулятор " << endl
@@ -296,8 +304,122 @@ int main()
 		{
 			cout << "Повторите ввод  ";
 			break;
-		}
+		}*/
 
+		cout << "1) Определить длину строки" << endl
+			<< "2) Объединение двух строк" << endl
+			<< "3) Вернуть подстроку" << endl
+			<< "4) Поиск подстроки" << endl
+			<< "5) Перевод строки в верхний регистр" << endl
+			<< "6) Перевод строки в нижний регистр" << endl
+			<< "7) Разделение исходной строки на path, name и extension" << endl
+			<< "8) Заменить табуляцию на пробелы" << endl
+			<< "9) Заменить пробелы на табуляцию" << endl
+			<< "10) Ввод СД" << endl
+			<< "11) Вывод СД" << endl
+			<< "0) Выход из программы" << endl
+			<< "Введите номер функции для ее выполнения ";
+		key = CheckSymbol();
+
+		switch (key)
+		{
+		case GetLengthEnum:
+		{
+			char string[] = { "" };
+			cout << "Введите строку: ";
+			cin.ignore();
+			cin.getline(string, 256);
+			cout << "Длина строки = " << GetLength(string) << endl;
+			break;
+		}
+		case ConcatenateEnum:
+		{
+			char string1[] = { "" };
+			char string2[] = { "" };
+
+			cout << "Введите первую строку: ";
+			cin.ignore();
+			cin.getline(string1, 256);
+			cout << "Введите вторую строку: ";
+			cin.getline(string2, 256);
+			cout << Concatenate(string1, string2) << endl;
+			break;
+		}
+		case GetSubstringEnum:
+		{
+			char string[] = { "Hello, World!" };
+			cout << GetSubstring(string, 2, 4) << endl;
+			cout << GetSubstring(string, -3, 3) << endl;
+			cout << GetSubstring(string, 2, -4) << endl;
+			cout << GetSubstring(string, 7, 8) << endl;
+			break;
+		}
+		case FindSubstringEnum:
+		{
+			cout << FindSubstring("Lorem ipsum aset amet", "ipsum a") << endl;
+			cout << FindSubstring("Lorem ipsum aset amet", "Arom") << endl;
+			cout << FindSubstring("Lorem ipsum aset ametsum", "sum") << endl;
+			break;
+		}
+		case UppercaseEnum:
+		{
+			cout << "Исходная строка: Different cases in That string, also 1 and 2 numbers!" << endl;
+			cout << "Результат: " << Uppercase("Different cases in That string, also 1 and 2 numbers!") << endl;
+			break;
+		}
+		case LowercaseEnum:
+		{
+			cout << "Исходная строка: Different cases in That string, also 1 and 2 numbers!" << endl;
+			cout << "Результат: " << Lowercase("Different cases in That string, also 1 and 2 numbers!") << endl;
+			break;
+		}
+		case SplitFilenameEnum:
+		{
+			char path[100];
+			char name[100];
+			char extension[100];
+			SplitFilename("d:\\folder\\file.exe", path, name, extension);
+			SplitFilename("d:\\folder\\subfolder\\file.exe", path, name, extension);
+			SplitFilename("d:\\folder\\subfolder\\file", path, name, extension);
+			SplitFilename("file.txt", path, name, extension);
+			SplitFilename("d:\\folder\\.exe", path, name, extension);
+			break;
+		}
+		case ReplaceTabsOnSpacesEnum:
+		{
+			cout << ReplaceTabsOnSpaces("Cake\tis\ta lie!") << endl;
+			cout << ReplaceTabsOnSpaces("Cake\t\tis a lie!") << endl;
+			cout << ReplaceTabsOnSpaces("\tCake is \tlie!") << endl;
+			break;
+		}
+		case ReplaceSpacesOnTabsEnum:
+		{
+			cout << ReplaceSpacesOnTabs("Cake::::is::a:lie!") << endl;
+			cout << ReplaceSpacesOnTabs("Cake::::is::::a:lie!") << endl;
+			cout << ReplaceSpacesOnTabs("Cake:is:a:::::::lie!") << endl;
+			cout << ReplaceSpacesOnTabs("Cake:is::a:lie!") << endl;
+			break;
+		}
+		case 10:
+		{
+			Person ReadPerson();
+			break;
+		}
+		case 11:
+		{
+			void PrintPerson(Person person);
+			break;
+		}
+		case 0:
+		{
+			isMenu = false;
+			break;
+		}
+		default:
+		{
+			cout << "Повторите ввод  ";
+			break;
+		}
 		}
 	}
 	system("pause");
