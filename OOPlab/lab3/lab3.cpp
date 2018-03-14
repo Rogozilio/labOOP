@@ -17,20 +17,21 @@ int GetLength(char* string)
 char* Concatenate(char* string1, char* string2)
 {
 	char* string3 = new char[100];
-	char j = 0;
+	int j = 0;
 	//TODO: Ниже дублируется 2 раза. Исправьте.
-	for (int i = 0; string1[i] != 0; i++)
+	//исправлено
+	for (int i = 0; i < GetLength(string1) + GetLength(string2); i++)
 	{
-		string3[i] = string1[i];
-		j++;
+		if (i < GetLength(string1))
+		{
+			string3[i] = string1[i];
+		}
+		else
+		{
+			string3[i] = string2[j++];
+		}
 	}
-	for (int i = 0; string2[i] != 0; i++)
-	{
-
-		string3[j] = string2[i];
-		j++;
-	}
-	string3[j] = 0;
+	string3[GetLength(string1) + GetLength(string2)] = 0;
 	return string3;
 }
 
@@ -40,6 +41,7 @@ char* GetSubstring(char* string, int startIndex, int charCount)
 
 	if (startIndex < 0 || charCount < 0 || startIndex + charCount - 1 > GetLength(string))
 	{//TODO: Зачем строкой передаёте "NULL"?
+		//Поскольку NULL разыменовать нельзя, то проще строкой передать NULL 
 		return "NULL";
 	}
 
@@ -87,7 +89,8 @@ char* Uppercase(char* string)
 
 	for (int i = 0; string[i] != 0; i++)
 	{//TODO: Использование прямых ASCII символов плохо читеается.
-		if (string[i] >= 97 && string[i] <= 122)
+		//исправлено
+		if (string[i] >= 'a' && string[i] <= 'z')
 		{
 			newString[i] = (int)string[i] - 32;
 		}
@@ -107,7 +110,8 @@ char* Lowercase(char* string)
 
 	for (int i = 0; string[i] != 0; i++)
 	{//TODO: Использование прямых ASCII символов плохо читеается.
-		if (string[i] >= 65 && string[i] <= 90)
+		//исправлено
+		if (string[i] >= 'A' && string[i] <= 'Z')
 		{
 			newString[i] = (int)string[i] + 32;
 		}
@@ -182,40 +186,44 @@ void SplitFilename(char* source, char* path, char* name, char* extension)
 	}
 }
 
-char* ReplaceTabsOnSpaces(char* string)
+char* ReplaceTabsOnSpaces(char* string, int numberTabs)
 {
 	char* newString = new char[100];
-	int newStringIdex = 0;
+	int newStringIndex = 0;
 	int j = 0;
 	for (int i = 0; i < GetLength(string); i++)
 	{//TODO: Дублирование + нерасширяемый код, т.к. может быть не только 4 символа, а любое кол-во.
+		//исправлено
+		
 		if (string[i] == '\t')
 		{
-			newString[j++] = ':';
-			newString[j++] = ':';
-			newString[j++] = ':';
-			newString[j++] = ':';
-			newStringIdex += 4;
+			newString[newStringIndex++] = ':';
+			while ((j + 1) % numberTabs != 0)
+			{
+				newString[newStringIndex++] = ':';
+				j++;
+			}
+			
 		}
 		else
 		{
-			newString[j] = string[i];
-			j++;
-			newStringIdex++;
+			newString[newStringIndex++] = string[i];
 		}
+		j++;
 	}
-	newString[newStringIdex] = 0;
+	newString[newStringIndex] = 0;
 	return newString;
 }
 
-char* ReplaceSpacesOnTabs(char* string)
+char* ReplaceSpacesOnTabs(char* string, int numberTabs)
 {
 	char* newString = new char[100];
 	int j = 0;
 	int newStringIndex = 0;
 	for (int i = 0; i < GetLength(string); i++)
 	{//TODO: Нерасширяемый код. т.к. может быть больше 4 символов
-		if (string[i] == ':' && (i + 1) % 4 == 0 && i != 0)
+		//исправлено
+		if (string[i] == ':' && (i + 1) % numberTabs == 0 && i != 0)
 		{
 			newStringIndex = newStringIndex - j;
 			newString[newStringIndex++] = '\t';
@@ -269,7 +277,8 @@ Person ReadPerson()
 	return newPerson;
 }
 //TODO: Передача по значению. Не оптимально.
-void PrintPerson(Person person)
+//исправлено
+void PrintPerson(Person& person)
 {
 	cout << "Фамилия: " << person.Surname << endl;
 	cout << "Имя: " << person.Name << endl;

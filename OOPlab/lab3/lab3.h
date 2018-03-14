@@ -24,10 +24,10 @@ char* Lowercase(char* string);
 //Разделение строки source на path, name и extension
 void SplitFilename(char* source, char* path, char* name, char* extension);
 //Замена табуляции на пробелы
-char* ReplaceTabsOnSpaces(char* string);
+char* ReplaceTabsOnSpaces(char* string, int numberTabs);
 //Замена пробелов на табуляцию
-char* ReplaceSpacesOnTabs(char* string);
+char* ReplaceSpacesOnTabs(char* string, int numberTabs);
 //Считывает данные человека с клавиатуры
 Person ReadPerson();
 //Выполняет вывод персоны на экран
-void PrintPerson(Person person);
+void PrintPerson(Person& person);

@@ -1,2 +1,3 @@
-﻿  lab3.cpp
+﻿  menu.cpp
+c:\users\чебуратор\source\repos\laboop\ooplab\menu.cpp(86): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
   OOPlab.vcxproj -> C:\Users\чебуратор\source\repos\labOOP\x64\Debug\OOPlab.exe

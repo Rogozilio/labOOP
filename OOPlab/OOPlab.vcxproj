@@ -151,10 +151,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CheckSymbol.cpp" />
     <ClCompile Include="lab1\lab1.cpp" />
     <ClCompile Include="lab2\lab2.cpp" />
     <ClCompile Include="lab3\lab3.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="menu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lab1\lab1.h" />

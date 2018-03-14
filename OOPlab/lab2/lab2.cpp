@@ -35,20 +35,22 @@ double MakeCalculation(int value1, int value2, char operationKey)
 
 int GetRootsPointer(int a, int b, int c, double* x1, double* x2)
 {   //TODO: Считать каждый раз дискриминант - не оптимально!
+	//исправлено
+	int D = b * b - 4 * a * c;
 	if (a == 0 && b != 0)
 	{
 		*x1 = -c / b;
 		cout << "Корни квадратного уравнения = " << *x1 << endl;
 		return 1;
 	}
-	else if ((b * b - 4 * a * c) > 0)
+	else if (D > 0)
 	{
 		*x1 = (-b - sqrt(b * b - 4 * a * c)) / (2 * a);
 		*x2 = (-b + sqrt(b * b - 4 * a * c)) / (2 * a);
 		cout << "Корни квадратного уравнения = " << *x1 << " " << *x2 << endl;
 		return 2;
 	}
-	else if ((b * b - 4 * a * c) == 0 && a != 0 && b != 0)
+	else if (D == 0 && a != 0 && b != 0)
 	{
 		*x1 = (-b + sqrt(b * b - 4 * a * c) / (2 * a));
 		cout << "Корни квадратного уравнения = " << *x1 << endl;
@@ -63,20 +65,22 @@ int GetRootsPointer(int a, int b, int c, double* x1, double* x2)
 
 int GetRootsLink(int a, int b, int c, double& x1, double& x2)
 {//TODO: Считать каждый раз дискриминант - не оптимально!
+	//исправлено
+	int D = b * b - 4 * a * c;
 	if (a == 0 && b != 0)
 	{
 		x1 = -c / b;
 		cout << "Корни квадратного уравнения = " << x1 << endl;
 		return 1;
 	}
-	else if ((b * b - 4 * a * c) > 0)
+	else if (D > 0)
 	{
 		x1 = (-b - sqrt(b * b - 4 * a * c)) / (2 * a);
 		x2 = (-b + sqrt(b * b - 4 * a * c)) / (2 * a);
 		cout << "Корни квадратного уравнения = " << x1 << " " << x2 << endl;
 		return 2;
 	}
-	else if ((b * b - 4 * a * c) == 0 && a != 0 && b != 0)
+	else if (D == 0 && a != 0 && b != 0)
 	{
 		x1 = (-b + sqrt(b * b - 4 * a * c) / (2 * a));
 		cout << "Корни квадратного уравнения = " << x1 << endl;
@@ -120,9 +124,12 @@ void GlobalEqualsOne()
 	globalVariable = 1;
 }
 //TODO: Тернарные операторы лучше не писать одной строкой - плохо читается код.
+//исправлено
 int GetPower(int base, int power)
 {
-	return power != 0 ? base * GetPower(base, power - 1) : 1;
+	return power != 0 ? 
+		base * GetPower(base, power - 1) 
+		: 1;
 }
 
 int GuessRandomNumber(int guessNumber, int enteredNumber, int shots)
@@ -186,7 +193,8 @@ void ArraySorting2(int array[], int arraySize)
 			}
 		}
 	}//TODO: Почему 10?
-	for (int i = 0; i < 10; i++)
+	//исправлено
+	for (int i = 0; i < arraySize; i++)
 	{
 		cout << array[i] << ' ';
 	}
@@ -208,7 +216,8 @@ void ArraySorting3(int* array, int arraySize)
 			}
 		}
 	}//TODO: Почему 10?
-	for (int i = 0; i < 10; i++)
+	//исправлено
+	for (int i = 0; i < arraySize; i++)
 	{
 		cout << array[i] << ' ';
 	}
