@@ -7,7 +7,8 @@
 #include <cstdio>
 
 using namespace std;
-
+//TODO: Внимательно прочитайте стандарт оформления кода RSDN https://rsdn.org/article/mag/200401/codestyle.XML
+//TODO: и приведите свой код в соответстие со стандартом
 int CheckSymbol()
 {
 	string n;
@@ -23,6 +24,7 @@ int CheckSymbol()
 
 int main()
 {
+	//TODO: В отдельный файл
 	enum MenuEnum
 		{
 			GetLengthEnum = 1, ConcatenateEnum, GetSubstringEnum,
@@ -34,7 +36,7 @@ int main()
 	int key;
 	bool isMenu = true;
 	while (isMenu)
-	{
+	{//TODO: В тексте не должно быть закомментированного кода!
 		/*cout << "1) Hello World " << endl
 			<< "2) Сумма целочисленных переменных " << endl
 			<< "3) Деление чисел" << endl
@@ -321,7 +323,7 @@ int main()
 		key = CheckSymbol();
 
 		switch (key)
-		{
+		{//TODO:
 		case GetLengthEnum:
 		{
 			char string[] = { "" };

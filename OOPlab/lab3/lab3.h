@@ -1,5 +1,5 @@
 #pragma once
-
+//TODO: Все сущности (структуры, перечисления, классы) должны быть в отдельных классах
 enum Sex { Female, Male };
 //Структура данных хранит информацию о человеке
 struct Person
@@ -7,7 +7,7 @@ struct Person
 	char Surname[40];
 	char Name[20];
 	int Age;
-	Sex SexPerson;
+	Sex SexPerson;//TODO: По RSDN не правильно называть поле структуры с префиксом или постфиксом с именем структуры
 };
 //Вывод на экран размера строки
 int GetLength(char* string);

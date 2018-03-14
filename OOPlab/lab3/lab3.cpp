@@ -18,6 +18,7 @@ char* Concatenate(char* string1, char* string2)
 {
 	char* string3 = new char[100];
 	char j = 0;
+	//TODO: Ниже дублируется 2 раза. Исправьте.
 	for (int i = 0; string1[i] != 0; i++)
 	{
 		string3[i] = string1[i];
@@ -38,7 +39,7 @@ char* GetSubstring(char* string, int startIndex, int charCount)
 	char* newString = new char[100];
 
 	if (startIndex < 0 || charCount < 0 || startIndex + charCount - 1 > GetLength(string))
-	{
+	{//TODO: Зачем строкой передаёте "NULL"?
 		return "NULL";
 	}
 
@@ -85,7 +86,7 @@ char* Uppercase(char* string)
 	char* newString = new char[100];
 
 	for (int i = 0; string[i] != 0; i++)
-	{
+	{//TODO: Использование прямых ASCII символов плохо читеается.
 		if (string[i] >= 97 && string[i] <= 122)
 		{
 			newString[i] = (int)string[i] - 32;
@@ -105,7 +106,7 @@ char* Lowercase(char* string)
 	char* newString = new char[100];
 
 	for (int i = 0; string[i] != 0; i++)
-	{
+	{//TODO: Использование прямых ASCII символов плохо читеается.
 		if (string[i] >= 65 && string[i] <= 90)
 		{
 			newString[i] = (int)string[i] + 32;
@@ -187,7 +188,7 @@ char* ReplaceTabsOnSpaces(char* string)
 	int newStringIdex = 0;
 	int j = 0;
 	for (int i = 0; i < GetLength(string); i++)
-	{
+	{//TODO: Дублирование + нерасширяемый код, т.к. может быть не только 4 символа, а любое кол-во.
 		if (string[i] == '\t')
 		{
 			newString[j++] = ':';
@@ -213,7 +214,7 @@ char* ReplaceSpacesOnTabs(char* string)
 	int j = 0;
 	int newStringIndex = 0;
 	for (int i = 0; i < GetLength(string); i++)
-	{
+	{//TODO: Нерасширяемый код. т.к. может быть больше 4 символов
 		if (string[i] == ':' && (i + 1) % 4 == 0 && i != 0)
 		{
 			newStringIndex = newStringIndex - j;
@@ -267,7 +268,7 @@ Person ReadPerson()
 	}
 	return newPerson;
 }
-
+//TODO: Передача по значению. Не оптимально.
 void PrintPerson(Person person)
 {
 	cout << "Фамилия: " << person.Surname << endl;
