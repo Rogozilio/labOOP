@@ -315,8 +315,7 @@ int main()
 			<< "7) Разделение исходной строки на path, name и extension" << endl
 			<< "8) Заменить табуляцию на пробелы" << endl
 			<< "9) Заменить пробелы на табуляцию" << endl
-			<< "10) Ввод СД" << endl
-			<< "11) Вывод СД" << endl
+			<< "10) Ввод и вывод данных структуры Person" << endl
 			<< "0) Выход из программы" << endl
 			<< "Введите номер функции для ее выполнения ";
 		key = CheckSymbol();
@@ -402,12 +401,8 @@ int main()
 		}
 		case 10:
 		{
-			Person ReadPerson();
-			break;
-		}
-		case 11:
-		{
-			void PrintPerson(Person person);
+			Person person1 = ReadPerson();
+			PrintPerson(person1);
 			break;
 		}
 		case 0:

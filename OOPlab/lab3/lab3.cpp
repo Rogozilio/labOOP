@@ -240,7 +240,7 @@ char* ReplaceSpacesOnTabs(char* string)
 
 Person ReadPerson()
 {
-	int n;
+	int sex;
 	Person newPerson;
 	cout << "Введите фамилию: ";
 	cin >> newPerson.Surname;
@@ -248,13 +248,13 @@ Person ReadPerson()
 	cin >> newPerson.Name;
 	cout << endl << "Введите возраст: ";
 	cin >> newPerson.Age;
-	cout << endl << "Введите пол(0 или 1): ";
+	cout << endl << "Введите пол: ";
 
 	do
 	{
-		cin >> n;
-	} while (n != 0 && n != 1);
-	switch (n)
+		cin >> sex;
+	} while (sex != 0 && sex != 1);
+	switch (sex)
 	{
 	case Female:
 		newPerson.SexPerson = Female;
@@ -272,6 +272,6 @@ void PrintPerson(Person person)
 {
 	cout << "Фамилия: " << person.Surname << endl;
 	cout << "Имя: " << person.Name << endl;
-	cout << "Возраст: " << person.Name << endl;
+	cout << "Возраст: " << person.Age << endl;
 	cout << "Пол: " << person.SexPerson << endl;
 }
