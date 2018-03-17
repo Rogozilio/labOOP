@@ -10,6 +10,7 @@ int CheckSymbol()
 	int integer;
 	do
 	{
+		cout << "Введите номер функции для ее выполнения ";
 		cin >> string;
 		if (string == "0") { return 0; }
 		integer = atoi(string.c_str());

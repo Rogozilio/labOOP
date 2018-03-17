@@ -44,5 +44,14 @@
     <ClInclude Include="lab3\lab3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="lab3\MenuEnum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lab3\Person.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lab3\Sex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

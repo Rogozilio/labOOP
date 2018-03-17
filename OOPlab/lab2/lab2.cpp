@@ -15,21 +15,16 @@ double MakeCalculation(int value1, int value2, char operationKey)
 {
 	switch (operationKey)
 	{
-	case '+':
-		return value1 + value2;
-		break;
-	case '-':
-		return value1 - value2;
-		break;
-	case '*':
-		return value1 * value2;
-		break;
-	case '/':
-		return value1 / value2;
-		break;
-	case '%':
-		return value1 % value2;
-		break;
+		case '+':
+			return value1 + value2;
+		case '-':
+			return value1 - value2;
+		case '*':
+			return value1 * value2;
+		case '/':
+			return value1 / value2;
+		case '%':
+			return value1 % value2;
 	}
 }
 
@@ -45,14 +40,14 @@ int GetRootsPointer(int a, int b, int c, double* x1, double* x2)
 	}
 	else if (D > 0)
 	{
-		*x1 = (-b - sqrt(b * b - 4 * a * c)) / (2 * a);
-		*x2 = (-b + sqrt(b * b - 4 * a * c)) / (2 * a);
+		*x1 = (-b - sqrt(D)) / (2 * a);
+		*x2 = (-b + sqrt(D)) / (2 * a);
 		cout << "Корни квадратного уравнения = " << *x1 << " " << *x2 << endl;
 		return 2;
 	}
 	else if (D == 0 && a != 0 && b != 0)
 	{
-		*x1 = (-b + sqrt(b * b - 4 * a * c) / (2 * a));
+		*x1 = (-b + sqrt(D)) / (2 * a);
 		cout << "Корни квадратного уравнения = " << *x1 << endl;
 		return 1;
 	}
@@ -75,14 +70,14 @@ int GetRootsLink(int a, int b, int c, double& x1, double& x2)
 	}
 	else if (D > 0)
 	{
-		x1 = (-b - sqrt(b * b - 4 * a * c)) / (2 * a);
-		x2 = (-b + sqrt(b * b - 4 * a * c)) / (2 * a);
+		x1 = (-b - sqrt(D)) / (2 * a);
+		x2 = (-b + sqrt(D)) / (2 * a);
 		cout << "Корни квадратного уравнения = " << x1 << " " << x2 << endl;
 		return 2;
 	}
 	else if (D == 0 && a != 0 && b != 0)
 	{
-		x1 = (-b + sqrt(b * b - 4 * a * c) / (2 * a));
+		x1 = (-b + sqrt(D) / (2 * a));
 		cout << "Корни квадратного уравнения = " << x1 << endl;
 		return 1;
 	}
@@ -127,8 +122,8 @@ void GlobalEqualsOne()
 //исправлено
 int GetPower(int base, int power)
 {
-	return power != 0 ? 
-		base * GetPower(base, power - 1) 
+	return power != 0 
+		? base * GetPower(base, power - 1) 
 		: 1;
 }
 
@@ -178,27 +173,10 @@ void ArraySorting1(int array[10])
 	cout << endl;
 }
 //TODO: Ниже дублируется код, нужно избавиться от дублирования.
+//исправлено
 void ArraySorting2(int array[], int arraySize)
 {
-	bool isFinish = false;
-	while (!isFinish)
-	{
-		isFinish = true;
-		for (int i = 0; i < arraySize - 1; i++)
-		{
-			if (array[i] > array[i + 1])
-			{
-				swap(array[i], array[i + 1]);
-				isFinish = false;
-			}
-		}
-	}//TODO: Почему 10?
-	//исправлено
-	for (int i = 0; i < arraySize; i++)
-	{
-		cout << array[i] << ' ';
-	}
-	cout << endl;
+	ArraySorting3(array, arraySize);
 }
 
 void ArraySorting3(int* array, int arraySize)
@@ -215,8 +193,7 @@ void ArraySorting3(int* array, int arraySize)
 				isFinish = false;
 			}
 		}
-	}//TODO: Почему 10?
-	//исправлено
+	}
 	for (int i = 0; i < arraySize; i++)
 	{
 		cout << array[i] << ' ';

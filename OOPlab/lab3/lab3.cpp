@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "Person.h"
 #include "lab3.h"
 
 using namespace std;
@@ -18,8 +19,7 @@ char* Concatenate(char* string1, char* string2)
 {
 	char* string3 = new char[100];
 	int j = 0;
-	//TODO: Ниже дублируется 2 раза. Исправьте.
-	//исправлено
+	
 	for (int i = 0; i < GetLength(string1) + GetLength(string2); i++)
 	{
 		if (i < GetLength(string1))
@@ -40,9 +40,8 @@ char* GetSubstring(char* string, int startIndex, int charCount)
 	char* newString = new char[100];
 
 	if (startIndex < 0 || charCount < 0 || startIndex + charCount - 1 > GetLength(string))
-	{//TODO: Зачем строкой передаёте "NULL"?
-		//Поскольку NULL разыменовать нельзя, то проще строкой передать NULL 
-		return "NULL";
+	{ 
+		return NULL;
 	}
 
 	for (int i = 0; i != charCount; i++)
@@ -88,8 +87,7 @@ char* Uppercase(char* string)
 	char* newString = new char[100];
 
 	for (int i = 0; string[i] != 0; i++)
-	{//TODO: Использование прямых ASCII символов плохо читеается.
-		//исправлено
+	{
 		if (string[i] >= 'a' && string[i] <= 'z')
 		{
 			newString[i] = (int)string[i] - 32;
@@ -109,8 +107,7 @@ char* Lowercase(char* string)
 	char* newString = new char[100];
 
 	for (int i = 0; string[i] != 0; i++)
-	{//TODO: Использование прямых ASCII символов плохо читеается.
-		//исправлено
+	{
 		if (string[i] >= 'A' && string[i] <= 'Z')
 		{
 			newString[i] = (int)string[i] + 32;
@@ -153,7 +150,6 @@ void SplitFilename(char* source, char* path, char* name, char* extension)
 		extensionIndex = GetLength(source);
 	}
 	
-
 	for (int i = 0; source[i] != 0; i++)
 	{
 		if (i <= pathIndex && pathIndex != 0)
@@ -180,30 +176,28 @@ void SplitFilename(char* source, char* path, char* name, char* extension)
 	}
 	else
 	{
-		cout << "path: NULL"  << endl;
+		path = name = extension = NULL;
+		cout << "path: NULL" << endl;
 		cout << "name: NULL"  << endl;
 		cout << "extension: NULL" << endl << endl;
 	}
 }
 
-char* ReplaceTabsOnSpaces(char* string, int numberTabs)
+char* ReplaceTabsOnSpaces(char* string, int numberSpace)
 {
 	char* newString = new char[100];
 	int newStringIndex = 0;
 	int j = 0;
 	for (int i = 0; i < GetLength(string); i++)
-	{//TODO: Дублирование + нерасширяемый код, т.к. может быть не только 4 символа, а любое кол-во.
-		//исправлено
-		
+	{
 		if (string[i] == '\t')
 		{
 			newString[newStringIndex++] = ':';
-			while ((j + 1) % numberTabs != 0)
+			while ((j + 1) % numberSpace != 0)
 			{
 				newString[newStringIndex++] = ':';
 				j++;
-			}
-			
+			}			
 		}
 		else
 		{
@@ -215,15 +209,14 @@ char* ReplaceTabsOnSpaces(char* string, int numberTabs)
 	return newString;
 }
 
-char* ReplaceSpacesOnTabs(char* string, int numberTabs)
+char* ReplaceSpacesOnTabs(char* string, int numberSpace)
 {
 	char* newString = new char[100];
 	int j = 0;
 	int newStringIndex = 0;
 	for (int i = 0; i < GetLength(string); i++)
-	{//TODO: Нерасширяемый код. т.к. может быть больше 4 символов
-		//исправлено
-		if (string[i] == ':' && (i + 1) % numberTabs == 0 && i != 0)
+	{
+		if (string[i] == ':' && (i + 1) % numberSpace == 0 && i != 0)
 		{
 			newStringIndex = newStringIndex - j;
 			newString[newStringIndex++] = '\t';
@@ -265,14 +258,14 @@ Person ReadPerson()
 	} while (sex != 0 && sex != 1);
 	switch (sex)
 	{
-	case Female:
-		newPerson.SexPerson = Female;
-		break;
-	case Male:
-		newPerson.SexPerson = Male;
-		break;
-	default:
-		break;
+		case Female:
+			newPerson.Sex = Female;
+			break;
+		case Male:
+			newPerson.Sex = Male;
+			break;
+		default:
+			break;
 	}
 	return newPerson;
 }
@@ -283,5 +276,5 @@ void PrintPerson(Person& person)
 	cout << "Фамилия: " << person.Surname << endl;
 	cout << "Имя: " << person.Name << endl;
 	cout << "Возраст: " << person.Age << endl;
-	cout << "Пол: " << person.SexPerson << endl;
+	cout << "Пол: " << person.Sex << endl;
 }

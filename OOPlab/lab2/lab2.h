@@ -28,3 +28,4 @@ void ArraySorting2(int array[], int arraySize);
 void ArraySorting3(int* array, int arraySize);
 //Перемножение матриц
 void MultiplyMatrices(int** matr1, int** matr2, int row, int inner, int col);
+void lab2();

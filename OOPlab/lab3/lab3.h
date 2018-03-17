@@ -1,14 +1,7 @@
 #pragma once
-//TODO: Все сущности (структуры, перечисления, классы) должны быть в отдельных классах
-enum Sex { Female, Male };
-//Структура данных хранит информацию о человеке
-struct Person
-{
-	char Surname[40];
-	char Name[20];
-	int Age;
-	Sex SexPerson;//TODO: По RSDN не правильно называть поле структуры с префиксом или постфиксом с именем структуры
-};
+#include "Person.h"
+
+void lab3();
 //Вывод на экран размера строки
 int GetLength(char* string);
 //Объединение двух строк
