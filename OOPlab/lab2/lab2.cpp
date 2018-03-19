@@ -29,8 +29,7 @@ double MakeCalculation(int value1, int value2, char operationKey)
 }
 
 int GetRootsPointer(int a, int b, int c, double* x1, double* x2)
-{   //TODO: Считать каждый раз дискриминант - не оптимально!
-	//исправлено
+{ 
 	int D = b * b - 4 * a * c;
 	if (a == 0 && b != 0)
 	{
@@ -50,7 +49,7 @@ int GetRootsPointer(int a, int b, int c, double* x1, double* x2)
 		*x1 = (-b + sqrt(D)) / (2 * a);
 		cout << "Корни квадратного уравнения = " << *x1 << endl;
 		return 1;
-	}
+	}//TODO: Зачем пустая строка?
 	
 	else
 	{
@@ -59,8 +58,7 @@ int GetRootsPointer(int a, int b, int c, double* x1, double* x2)
 }
 
 int GetRootsLink(int a, int b, int c, double& x1, double& x2)
-{//TODO: Считать каждый раз дискриминант - не оптимально!
-	//исправлено
+{
 	int D = b * b - 4 * a * c;
 	if (a == 0 && b != 0)
 	{
@@ -80,7 +78,7 @@ int GetRootsLink(int a, int b, int c, double& x1, double& x2)
 		x1 = (-b + sqrt(D) / (2 * a));
 		cout << "Корни квадратного уравнения = " << x1 << endl;
 		return 1;
-	}
+	}//TODO: Зачем пустая строка?
 
 	else
 	{
@@ -118,8 +116,7 @@ void GlobalEqualsOne()
 {
 	globalVariable = 1;
 }
-//TODO: Тернарные операторы лучше не писать одной строкой - плохо читается код.
-//исправлено
+
 int GetPower(int base, int power)
 {
 	return power != 0 
@@ -172,8 +169,7 @@ void ArraySorting1(int array[10])
 	}
 	cout << endl;
 }
-//TODO: Ниже дублируется код, нужно избавиться от дублирования.
-//исправлено
+
 void ArraySorting2(int array[], int arraySize)
 {
 	ArraySorting3(array, arraySize);
@@ -238,6 +234,6 @@ void MultiplyMatrices(int** matr1, int** matr2,int row, int inner,  int col)
 			cout << matr3[i][j] << ' ';
 		}
 		cout << endl;
-	}
+	}//TODO: Говорил, что операция delete должна применяться ко всем элементам массивов.
 	delete matr3;
 }

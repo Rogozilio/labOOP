@@ -17,7 +17,7 @@ void lab1()
 	int key;
 	bool isMenu = true;
 	while (isMenu)
-	{
+	{//TODO: Все строки на русском языке показываются в виде иероглифов!
 		cout << "1) Hello World " << endl
 			<< "2) Ñóììà öåëî÷èñëåííûõ ïåðåìåííûõ " << endl
 			<< "3) Äåëåíèå ÷èñåë" << endl

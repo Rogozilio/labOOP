@@ -269,8 +269,7 @@ Person ReadPerson()
 	}
 	return newPerson;
 }
-//TODO: Передача по значению. Не оптимально.
-//исправлено
+
 void PrintPerson(Person& person)
 {
 	cout << "Фамилия: " << person.Surname << endl;
