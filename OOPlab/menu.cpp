@@ -594,7 +594,7 @@ void lab4()
 				}
 				else
 				{
-					cout << endl << "Нет" << endl;
+					cout << endl << "Нет " << endl;
 				}
 				break;
 			}
