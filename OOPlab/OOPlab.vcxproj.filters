@@ -45,7 +45,10 @@
     <ClCompile Include="CheckSymbol.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="lab4.cpp">
+    <ClCompile Include="lab4\lab4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lab4\Stack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -68,16 +71,19 @@
     <ClInclude Include="lab3\Sex.h">
       <Filter>Header Files\lab3</Filter>
     </ClInclude>
-    <ClInclude Include="StructPerson.h">
+    <ClInclude Include="lab4\lab4.h">
       <Filter>Header Files\lab4</Filter>
     </ClInclude>
-    <ClInclude Include="lab4.h">
+    <ClInclude Include="lab4\map4.h">
       <Filter>Header Files\lab4</Filter>
     </ClInclude>
-    <ClInclude Include="map4.h">
+    <ClInclude Include="lab4\person4.h">
       <Filter>Header Files\lab4</Filter>
     </ClInclude>
-    <ClInclude Include="person4.h">
+    <ClInclude Include="lab4\StructPerson.h">
+      <Filter>Header Files\lab4</Filter>
+    </ClInclude>
+    <ClInclude Include="lab4\Stack.h">
       <Filter>Header Files\lab4</Filter>
     </ClInclude>
   </ItemGroup>

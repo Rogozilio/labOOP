@@ -1,16 +1,18 @@
 #pragma once
-#include "lab1/lab1.h"
-#include "lab2/lab2.h"
-#include "lab3/lab3.h"
-#include "lab4.h"
-#include "lab3/MenuEnum.h"
-#include "lab3/Person.h"
-#include "StructPerson.h"
 #include <iostream>
 #include <string>
 #include <ctime>
 #include <cstdio>
 #include <Windows.h>
+#include "lab1/lab1.h"
+#include "lab2/lab2.h"
+#include "lab3/lab3.h"
+#include "lab4/lab4.h"
+#include "lab3/MenuEnum.h"
+#include "lab3/Person.h"
+#include "lab4/StructPerson.h"
+#include "lab4/Stack.h"
+
 
 using namespace std;
 
@@ -432,6 +434,7 @@ void lab4()
 {
 	setlocale(LC_ALL, "rus");
 	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	Stack* stack = NULL;
 	PersonList* person = new PersonList;
 	PersonList* head = NULL;
 	PersonList* tail = NULL;
@@ -447,6 +450,12 @@ void lab4()
 			<< "4) Удаление элемента списка по индексу" << endl
 			<< "5) Перемещение элемента person по индексу" << endl
 			<< "6) Очистить список" << endl
+			<< "------------Работа со стеком-------------" << endl
+			<< "7) Добавить элемент в стек (Push)" << endl
+			<< "8) Удалить верхний элемент стека (Pop)" << endl
+			<< "9) Получить верхний элемент (Top)" << endl
+			<< "10) Размер стека (Size)" << endl
+			<< "11) Стек пустой? (IsEmpty)" << endl
 			<< "0) Выход из программы" << endl;
 		key = CheckSymbol();
 		SetConsoleTextAttribute(hStdOut, FOREGROUND_INTENSITY);
@@ -495,6 +504,61 @@ void lab4()
 			{
 				Clear(head, tail);
 				cout << endl << "Очистка завершена" << endl << endl;
+				break;
+			}
+			case 7:
+			{
+				int value;
+				cout << "Введите значение: ";
+				cin >> value;
+				Push(stack, value);
+				cout << "+ 1 элемент в стеке" << endl;
+				break;
+			}
+			case 8:
+			{
+				if (Pop(stack) == -1)
+				{
+					cout << endl << "Стек пуст" << endl;
+				}
+				else
+				{
+					cout << endl << Pop(stack) << endl;
+				}
+				break;
+			}
+			case 9:
+			{
+				if (Top(stack) == -1)
+				{
+					cout << endl << "Стек пуст" << endl;
+				}
+				else
+				{
+					cout << endl << Top(stack) << endl;
+				}
+				break;
+			}
+			case 10:
+			{
+				cout << "Размер стека = " << Size(stack) << endl;
+				break;
+			}
+			case 11:
+			{
+				if (IsEmpty(stack) == true)
+				{
+					cout << endl << "Да" << endl;
+				}
+				else
+				{
+					cout << endl << "Нет" << endl;
+				}
+				break;
+			}
+			case 0:
+			{
+				isMenu = false;
 				break;
 			}
 			default:

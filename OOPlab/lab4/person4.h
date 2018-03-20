@@ -1,5 +1,5 @@
 #pragma once
-#include "lab3/Sex.h"
+#include "../lab3/Sex.h"
 #include <iostream>
 #include <string>
 

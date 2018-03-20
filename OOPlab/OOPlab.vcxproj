@@ -155,7 +155,8 @@
     <ClCompile Include="lab1\lab1.cpp" />
     <ClCompile Include="lab2\lab2.cpp" />
     <ClCompile Include="lab3\lab3.cpp" />
-    <ClCompile Include="lab4.cpp" />
+    <ClCompile Include="lab4\lab4.cpp" />
+    <ClCompile Include="lab4\Stack.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
   </ItemGroup>
@@ -166,10 +167,11 @@
     <ClInclude Include="lab3\MenuEnum.h" />
     <ClInclude Include="lab3\Person.h" />
     <ClInclude Include="lab3\Sex.h" />
-    <ClInclude Include="lab4.h" />
-    <ClInclude Include="map4.h" />
-    <ClInclude Include="person4.h" />
-    <ClInclude Include="StructPerson.h" />
+    <ClInclude Include="lab4\lab4.h" />
+    <ClInclude Include="lab4\map4.h" />
+    <ClInclude Include="lab4\person4.h" />
+    <ClInclude Include="lab4\Stack.h" />
+    <ClInclude Include="lab4\StructPerson.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
