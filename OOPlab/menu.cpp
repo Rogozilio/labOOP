@@ -545,7 +545,7 @@ void lab4()
 			case 6:
 			{
 				Clear(head, tail);
-				cout << endl << "Очистка завершена" << endl << endl;
+				cout << endl << "Очистка завершена " << endl << endl;
 				break;
 			}
 			case 7:
