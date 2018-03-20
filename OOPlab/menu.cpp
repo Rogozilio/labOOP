@@ -291,9 +291,19 @@ void lab2()
 					}
 					cout << endl;
 				}
+
 				MultiplyMatrices(matr1, matr2, matrSize1, matrSize2, matrSize3);
-				delete matr1;
-				delete matr2;
+
+				for (int i = 0; i < matrSize1; i++)
+				{
+					delete matr1[i];
+				}
+				for (int i = 0; i < matrSize2; i++)
+				{
+					delete matr2[i];
+				}
+				delete [] matr1;
+				delete [] matr2;
 			}
 			case 0:
 			{
@@ -356,10 +366,42 @@ void lab3()
 			case GetSubstringEnum:
 			{
 				char string[] = { "Hello, World!" };
-				cout << GetSubstring(string, 2, 4) << endl;
-				cout << GetSubstring(string, -3, 3) << endl;
-				cout << GetSubstring(string, 2, -4) << endl;
-				cout << GetSubstring(string, 7, 8) << endl;
+
+				if (GetSubstring(string, 2, 4) == NULL)
+				{
+					cout << "NULL" << endl;
+				}
+				else
+				{
+					cout << GetSubstring(string, 2, 4) << endl;
+				}
+
+				if (GetSubstring(string, -3, 3) == NULL)
+				{
+					cout << "NULL" << endl;
+				}
+				else
+				{
+					cout << GetSubstring(string, -3, 3) << endl;
+				}
+
+				if (GetSubstring(string, 2, -4) == NULL)
+				{
+					cout << "NULL" << endl;
+				}
+				else
+				{
+					cout << GetSubstring(string, 2, -4) << endl;
+				}
+
+				if (GetSubstring(string, 7, 8) == NULL)
+				{
+					cout << "NULL" << endl;
+				}
+				else
+				{
+					cout << GetSubstring(string, 7, 8) << endl;
+				}
 				break;
 			}
 			case FindSubstringEnum:

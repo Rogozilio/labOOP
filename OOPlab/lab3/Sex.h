@@ -1,3 +1,8 @@
 #pragma once
-
-enum Sex { Female, Male };
+//TODO: Неправильное форматирование перечисления по RSDN
+//исправлено
+enum Sex
+{ 
+	Female,
+	Male 
+};

@@ -29,8 +29,7 @@ double MakeCalculation(int value1, int value2, char operationKey)
 }
 
 int GetRootsPointer(int a, int b, int c, double* x1, double* x2)
-{   //TODO: —читать каждый раз дискриминант - не оптимально!
-	//исправлено
+{
 	int D = b * b - 4 * a * c;
 	if (a == 0 && b != 0)
 	{
@@ -51,7 +50,6 @@ int GetRootsPointer(int a, int b, int c, double* x1, double* x2)
 		cout << " орни квадратного уравнени€ = " << *x1 << endl;
 		return 1;
 	}
-	
 	else
 	{
 		return 0;
@@ -59,8 +57,7 @@ int GetRootsPointer(int a, int b, int c, double* x1, double* x2)
 }
 
 int GetRootsLink(int a, int b, int c, double& x1, double& x2)
-{//TODO: —читать каждый раз дискриминант - не оптимально!
-	//исправлено
+{
 	int D = b * b - 4 * a * c;
 	if (a == 0 && b != 0)
 	{
@@ -81,7 +78,6 @@ int GetRootsLink(int a, int b, int c, double& x1, double& x2)
 		cout << " орни квадратного уравнени€ = " << x1 << endl;
 		return 1;
 	}
-
 	else
 	{
 		return 0;
@@ -118,8 +114,7 @@ void GlobalEqualsOne()
 {
 	globalVariable = 1;
 }
-//TODO: “ернарные операторы лучше не писать одной строкой - плохо читаетс€ код.
-//исправлено
+
 int GetPower(int base, int power)
 {
 	return power != 0 
@@ -172,8 +167,7 @@ void ArraySorting1(int array[10])
 	}
 	cout << endl;
 }
-//TODO: Ќиже дублируетс€ код, нужно избавитьс€ от дублировани€.
-//исправлено
+
 void ArraySorting2(int array[], int arraySize)
 {
 	ArraySorting3(array, arraySize);
@@ -239,5 +233,11 @@ void MultiplyMatrices(int** matr1, int** matr2,int row, int inner,  int col)
 		}
 		cout << endl;
 	}
-	delete matr3;
+	//TODO: √оворил, что операци€ delete должна примен€тьс€ ко всем элементам массивов.
+	//исправлено
+	for (int i = 0; i < row; i++)
+	{
+		delete matr3[i];
+	}
+	delete [] matr3;
 }
