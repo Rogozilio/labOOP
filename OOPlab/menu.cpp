@@ -2,12 +2,15 @@
 #include "lab1/lab1.h"
 #include "lab2/lab2.h"
 #include "lab3/lab3.h"
+#include "lab4.h"
 #include "lab3/MenuEnum.h"
 #include "lab3/Person.h"
+#include "StructPerson.h"
 #include <iostream>
 #include <string>
 #include <ctime>
 #include <cstdio>
+#include <Windows.h>
 
 using namespace std;
 
@@ -414,6 +417,84 @@ void lab3()
 			case 0:
 			{
 				isMenu = false;
+				break;
+			}
+			default:
+			{
+				cout << "Повторите ввод  ";
+				break;
+			}
+		}
+	}
+}
+
+void lab4()
+{
+	setlocale(LC_ALL, "rus");
+	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	PersonList* person = new PersonList;
+	PersonList* head = NULL;
+	PersonList* tail = NULL;
+	int key;
+	bool isMenu = true;
+	while (isMenu)
+	{
+		
+		SetConsoleTextAttribute(hStdOut, FOREGROUND_GREEN);
+		cout << "1) Добавление элемента списка" << endl
+			<< "2) Вывод списка на экран" << endl
+			<< "3) Вернуть указатель по индексу" << endl
+			<< "4) Удаление элемента списка по индексу" << endl
+			<< "5) Перемещение элемента person по индексу" << endl
+			<< "6) Очистить список" << endl
+			<< "0) Выход из программы" << endl;
+		key = CheckSymbol();
+		SetConsoleTextAttribute(hStdOut, FOREGROUND_INTENSITY);
+		switch (key)
+		{
+			case 1:
+			{
+				person = Add(person->Person, head, tail);
+				cout << endl << "Элемент добавлен " << endl << endl;
+				break;
+			}
+			case 2:
+			{
+				Show(head);
+				break;
+			}
+			case 3:
+			{
+				int index = 0;
+				PersonList* newPerson = new PersonList;
+				cout << "Введите индекс: ";
+				cin >> index;
+				person = Get(index,head);
+				cout << endl << newPerson << endl;
+				break;
+			}
+			case 4:
+			{
+				int index = 0;
+				cout << "Введите индекс: ";
+				cin >> index;
+				Remove(index, head, tail);
+				break;
+			}
+			case 5:
+			{
+				int index = 0;
+				PersonList* newPerson = new PersonList;
+				newPerson->Person = MakeRandomPerson();
+				cout << "Введите индекс: ";
+				cin >> index;
+				Insert(newPerson->Person, index, head);
+				break;
+			}
+			case 6:
+			{
+				Clear(head, tail);
+				cout << endl << "Очистка завершена" << endl << endl;
 				break;
 			}
 			default:
