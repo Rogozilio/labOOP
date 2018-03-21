@@ -17,9 +17,13 @@ int GetLength(char* string)
 
 char* Concatenate(char* string1, char* string2)
 {
+	//TODO: Если сумма длин входных строк будет больше 100, то функция аварийно завершит программу
+	//TODO: Исправить функцию, чтобы выделялось точно нужное количество символов
 	char* string3 = new char[100];
 	int j = 0;
 	
+	//TODO: Лучше делать двумя отдельными циклами.
+	// сумма длин строк под условием выхода цикла - нестандартное, а следовательно плохо читаемое решение
 	for (int i = 0; i < GetLength(string1) + GetLength(string2); i++)
 	{
 		if (i < GetLength(string1))
@@ -37,6 +41,8 @@ char* Concatenate(char* string1, char* string2)
 
 char* GetSubstring(char* string, int startIndex, int charCount)
 {
+	//TODO: Если charCount больше 100, то функция аварийно завершит программу
+	//TODO: Исправить функцию, чтобы выделялось точно нужное количество символов
 	char* newString = new char[100];
 
 	if (startIndex < 0 || charCount < 0 || startIndex + charCount - 1 > GetLength(string))
@@ -84,12 +90,15 @@ int FindSubstring(char* string, char* subString)
 
 char* Uppercase(char* string)
 {
+	//TODO: Аналогично предыдущим функциям
 	char* newString = new char[100];
 
 	for (int i = 0; string[i] != 0; i++)
 	{
 		if (string[i] >= 'a' && string[i] <= 'z')
 		{
+			//TODO: 32 - магическое число, ухудшающее читаемость кода.
+			// Реализовать функцию без магического числа
 			newString[i] = (int)string[i] - 32;
 		}
 		else
@@ -104,12 +113,15 @@ char* Uppercase(char* string)
 
 char* Lowercase(char* string)
 {
+	//TODO: Аналогично предыдущим функциям
 	char* newString = new char[100];
 
 	for (int i = 0; string[i] != 0; i++)
 	{
 		if (string[i] >= 'A' && string[i] <= 'Z')
 		{
+			//TODO: 32 - магическое число, ухудшающее читаемость кода.
+			// Реализовать функцию без магического числа
 			newString[i] = (int)string[i] + 32;
 		}
 		else
@@ -170,6 +182,7 @@ void SplitFilename(char* source, char* path, char* name, char* extension)
 	extension[k] = 0;
 	if (j != 0)
 	{
+		//TODO: функции бизнес-логики ничего не должны выводить на экран
 		cout << "path: " << path << endl;
 		cout << "name: " << name << endl;
 		cout << "extension: " << extension << endl << endl;
@@ -177,6 +190,7 @@ void SplitFilename(char* source, char* path, char* name, char* extension)
 	else
 	{
 		path = name = extension = NULL;
+		//TODO: функции бизнес-логики ничего не должны выводить на экран
 		cout << "path: NULL" << endl;
 		cout << "name: NULL"  << endl;
 		cout << "extension: NULL" << endl << endl;
@@ -185,6 +199,7 @@ void SplitFilename(char* source, char* path, char* name, char* extension)
 
 char* ReplaceTabsOnSpaces(char* string, int numberSpace)
 {
+	//TODO: Аналогично предыдущим функциям
 	char* newString = new char[100];
 	int newStringIndex = 0;
 	int j = 0;
@@ -211,6 +226,7 @@ char* ReplaceTabsOnSpaces(char* string, int numberSpace)
 
 char* ReplaceSpacesOnTabs(char* string, int numberSpace)
 {
+	//TODO: Аналогично предыдущим функциям
 	char* newString = new char[100];
 	int j = 0;
 	int newStringIndex = 0;

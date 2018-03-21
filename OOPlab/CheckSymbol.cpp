@@ -4,6 +4,7 @@
 
 using namespace std;
 
+//TODO: Комментарий к функции
 int CheckSymbol()
 {
 	string string;

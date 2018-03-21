@@ -6,11 +6,13 @@ using namespace std;
 
 int globalVariable = 7;
 
+//TODO: Комментарий к функции
 void PrintHelloWorld()
 {
 	cout << "Hello, World!" << endl;
 }
 
+//TODO: Комментарий к функции
 double MakeCalculation(int value1, int value2, char operationKey)
 {
 	switch (operationKey)
@@ -28,6 +30,7 @@ double MakeCalculation(int value1, int value2, char operationKey)
 	}
 }
 
+//TODO: Комментарий к функции
 int GetRootsPointer(int a, int b, int c, double* x1, double* x2)
 {
 	int D = b * b - 4 * a * c;
@@ -56,6 +59,7 @@ int GetRootsPointer(int a, int b, int c, double* x1, double* x2)
 	}
 }
 
+//TODO: Комментарий к функции
 int GetRootsLink(int a, int b, int c, double& x1, double& x2)
 {
 	int D = b * b - 4 * a * c;
@@ -83,11 +87,13 @@ int GetRootsLink(int a, int b, int c, double& x1, double& x2)
 		return 0;
 	}
 }
+//TODO: пустая строка между двумя функциями
 //Рассчитать сумму двух целочисленных переменных
 void SummNumbers(int value1, int value2)
 {
 	cout << "Summ of integer is " <<  value1 + value2 << endl;
 }
+//TODO: пустая строка между двумя функциями
 //Рассчитать сумму двух целочисленных переменных
 void SummNumbers(double value1, double value2)
 {
@@ -100,21 +106,25 @@ void SummNumbers(int value1, double value2)
 	cout << "Summ of integer and double is " << value1 + value2 << endl << endl;
 }
 
+//TODO: Комментарий к функции
 void GlobalPlusTwo()
 {
 	globalVariable += 2;
 }
 
+//TODO: Комментарий к функции
 void GlobalMultiplyThree()
 {
 	globalVariable *= 3;
 }
 
+//TODO: Комментарий к функции
 void GlobalEqualsOne()
 {
 	globalVariable = 1;
 }
 
+//TODO: Комментарий к функции
 int GetPower(int base, int power)
 {
 	return power != 0 
@@ -122,6 +132,7 @@ int GetPower(int base, int power)
 		: 1;
 }
 
+//TODO: Комментарий к функции
 int GuessRandomNumber(int guessNumber, int enteredNumber, int shots)
 {
 	for (; shots != 0; shots--)
@@ -146,6 +157,7 @@ int GuessRandomNumber(int guessNumber, int enteredNumber, int shots)
 	cout << "Вы проиграли =(" << endl;
 }
 
+//TODO: Комментарий к функции
 void ArraySorting1(int array[10])
 {
 	bool isFinish = false;
@@ -168,11 +180,13 @@ void ArraySorting1(int array[10])
 	cout << endl;
 }
 
+//TODO: Комментарий к функции
 void ArraySorting2(int array[], int arraySize)
 {
 	ArraySorting3(array, arraySize);
 }
 
+//TODO: Комментарий к функции
 void ArraySorting3(int* array, int arraySize)
 {
 	bool isFinish = false;
@@ -195,6 +209,7 @@ void ArraySorting3(int* array, int arraySize)
 	cout << endl;
 }
 
+//TODO: Комментарий к функции
 void MultiplyMatrices(int** matr1, int** matr2,int row, int inner,  int col)
 {
 	int **matr3 = new int *[row];

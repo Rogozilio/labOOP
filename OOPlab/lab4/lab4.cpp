@@ -49,6 +49,9 @@ int GetLength(PersonList* head)
 PersonList* Add(PersonLab4& person, PersonList*& head, PersonList*& tail)
 {
 	PersonList* temp = new PersonList;
+	//TODO: Неправильно! В итоге ты добавляешь в список не тот Person,
+	// который пришел на вход функции, а случайно сгенерированного.
+	// MakeRandomPerson() - отладочная функция, и может вызываться только в main/lab4menu()
 	temp->Person = MakeRandomPerson();
 	if (head == NULL)
 	{
@@ -77,6 +80,7 @@ void Show(PersonList* head)
 	{
 		while (temp != NULL)
 		{
+			//TODO: если выводить все данные о персоне в одну строку, то тестировать/отлаживать будет удобнее
 			cout << endl << "Фамилия: " << temp->Person.Surname << endl;
 			cout << "Имя: " << temp->Person.Name << endl;
 			cout << "Возраст: " << temp->Person.Age << endl;
@@ -107,6 +111,7 @@ void Remove(int index, PersonList*& head, PersonList*& tail)
 {
 	PersonList* temp = head;
 	int numberIndex = 0;
+	//TODO: в случае сложных ветвлений и вложенных условий надо комментировать каждый if
 	if (index >= 0 && index < GetLength(head))
 	{
 		while (index != numberIndex++)
@@ -118,22 +123,26 @@ void Remove(int index, PersonList*& head, PersonList*& tail)
 		{
 			if (temp->Next == NULL)
 			{
+				//TODO: утечка памяти
 				head = NULL;
 				tail = NULL;
 			}
 			else
 			{
 				temp->Next->Prev = NULL;
+				//TODO: утечка памяти
 				head = temp->Next;
 			}
 		} 
 		else if (tail == temp)
 		{
+			//TODO: утечка памяти
 			tail->Prev->Next = NULL;
 			tail = tail->Prev;
 		}
 		else
 		{
+			//TODO: утечка памяти
 			temp->Prev->Next = temp->Next;
 			temp->Next->Prev = temp->Prev;
 		}
@@ -142,6 +151,8 @@ void Remove(int index, PersonList*& head, PersonList*& tail)
 
 void Insert(PersonLab4& person, int index, PersonList* head)
 {
+	//TODO: неправильная реализация!
+	// Insert должен вставлять НОВЫЙ элемент в список, а не заменять старый по указанному индексу
 	PersonList* temp = head;
 	int numberIndex = 0;
 	if (index >= 0 && index < GetLength(head))
@@ -160,6 +171,9 @@ void Clear(PersonList*& head, PersonList*& tail)
 	for (int i = GetLength(head); i > 0; i--)
 	{
 		delete temp;
+		//TODO: если temp удален, то как ты можешь обратиться к его предыдущему элементу?
+		// Программа падает при вызове Clear()? Исправить!
+		// Функцию тестировал?
 		temp = temp->Prev;
 	}
 	head = NULL;
