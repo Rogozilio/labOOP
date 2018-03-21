@@ -233,8 +233,6 @@ void MultiplyMatrices(int** matr1, int** matr2,int row, int inner,  int col)
 		}
 		cout << endl;
 	}
-	//TODO: √оворил, что операци€ delete должна примен€тьс€ ко всем элементам массивов.
-	//исправлено
 	for (int i = 0; i < row; i++)
 	{
 		delete matr3[i];
