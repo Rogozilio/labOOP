@@ -321,6 +321,8 @@ void lab2()
 
 void lab3()
 {
+	//TODO: подключить русский язык достаточно один раз в функции main(),
+	// вместо дублирования в каждой функции
 	setlocale(LC_ALL, "rus");
 	int key;
 	bool isMenu = true;
@@ -361,6 +363,7 @@ void lab3()
 				cout << "Введите вторую строку: ";
 				cin.getline(string2, 256);
 				cout << Concatenate(string1, string2) << endl;
+				//TODO: Здесь и далее вызываемые функции создают строки динамически, но память нигде не освобождается. Исправить!
 				break;
 			}
 			case GetSubstringEnum:

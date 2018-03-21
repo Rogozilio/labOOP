@@ -1,17 +1,3 @@
-﻿  CheckSymbol.cpp
-  lab1.cpp
-c:\users\alexe\onedrive\документы\!repos\2018\gpo\ruslanrogozin\ooplab\lab1\lab1.cpp(155): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\alexe\onedrive\документы\!repos\2018\gpo\ruslanrogozin\ooplab\lab1\lab1.cpp(158): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\alexe\onedrive\документы\!repos\2018\gpo\ruslanrogozin\ooplab\lab1\lab1.cpp(164): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  lab2.cpp
-  lab3.cpp
-  lab4.cpp
-c:\users\alexe\onedrive\документы\!repos\2018\gpo\ruslanrogozin\ooplab\lab4\lab4.cpp(14): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Stack.cpp
-  main.cpp
-  menu.cpp
-c:\users\alexe\onedrive\документы\!repos\2018\gpo\ruslanrogozin\ooplab\menu.cpp(92): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Generating Code...
-c:\users\alexe\onedrive\документы\!repos\2018\gpo\ruslanrogozin\ooplab\lab2\lab2.cpp(29): warning C4715: 'MakeCalculation': not all control paths return a value
-c:\users\alexe\onedrive\документы\!repos\2018\gpo\ruslanrogozin\ooplab\lab2\lab2.cpp(147): warning C4715: 'GuessRandomNumber': not all control paths return a value
-  OOPlab.vcxproj -> C:\Users\alexe\OneDrive\Документы\!repos\2018\GPO\RuslanRogozin\x64\Debug\OOPlab.exe
+﻿  lab4.cpp
+c:\users\aleksandr\source\repos\2018_gpo_rogozin_cpp\ooplab\lab4\lab4.cpp(14): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  OOPlab.vcxproj -> C:\Users\aleksandr\Source\Repos\2018_GPO_Rogozin_CPP\x64\Debug\OOPlab.exe
