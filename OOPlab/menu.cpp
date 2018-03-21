@@ -459,7 +459,7 @@ void lab3()
 				break;
 			}
 			case 0:
-			{
+			{//TODO: Выход на 0 не работает.
 				isMenu = false;
 				break;
 			}
