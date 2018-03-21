@@ -1,4 +1,9 @@
-﻿  lab2.cpp
+﻿  CheckSymbol.cpp
+  lab1.cpp
+c:\users\чебуратор\source\repos\laboop\ooplab\lab1\lab1.cpp(155): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+c:\users\чебуратор\source\repos\laboop\ooplab\lab1\lab1.cpp(158): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\users\чебуратор\source\repos\laboop\ooplab\lab1\lab1.cpp(164): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  lab2.cpp
   lab3.cpp
   Stack.cpp
   lab4.cpp
