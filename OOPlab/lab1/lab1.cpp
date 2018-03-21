@@ -1,23 +1,23 @@
-#pragma once
 #include <iostream>
+
 using namespace std;
 
-inline void HelloWorld()
+void HelloWorld()
 {
 	cout << endl << "Hello, World!" << endl << endl;
 }
 
-inline void sumVariables()
+void SumVariables()
 {
 	int a; // Объявление целочисленной переменной
 	a = 5; // Инициализация переменной значением
 	int b = 3; // Допустимо одновременное объявление и инициализация
 	cout << "Variable a equals = " << a << endl; // Вывод значения переменной на экран
 	cout << "Variable b equals = " << b << endl; // Значение переменной подставится вместо
-	cout << "Summ of a and b equals = " << a+b << endl; // Можно выводить сразу
+	cout << "Summ of a and b equals = " << a + b << endl; // Можно выводить сразу
 }
 
-inline void divVariables()
+void DivVariables()
 {
 	int a = 5;
 	int b = 3;
@@ -27,7 +27,7 @@ inline void divVariables()
 	cout << "Integer variables division:" << endl << a / b << endl << endl;
 }
 
-inline void inputVariables()
+void InputVariables()
 {
 	int a;
 	int b;
@@ -40,10 +40,10 @@ inline void inputVariables()
 	cin >> a; // Чтение значения переменной с клавиатуры
 	cout << endl << "Enter second integer value: ";
 	cin >> b;
-	cout << endl <<"Summ of a and b equals" << endl <<  a << " + " <<  b << " = " <<  a + b << endl;
+	cout << endl << "Summ of a and b equals" << endl << a << " + " << b << " = " << a + b << endl;
 }
 
-inline void pointer()
+void Pointer()
 {
 	int value;
 	int* pointer; // Объявление указателя на целочисленный тип данных
@@ -61,7 +61,7 @@ inline void pointer()
 	cout << "Value in pointer: " << endl << *pointer << endl;
 }
 
-inline void evenAndOdd()
+void EvenAndOdd()
 {
 	int a;
 	cout << "Enter value for check on even/odd: ";
@@ -75,8 +75,8 @@ inline void evenAndOdd()
 		cout << endl << "Value is odd!" << endl << a << endl;
 	}
 }
-
-inline void evenAndOdd2()
+//
+void EvenAndOdd2()
 {
 	int a;
 	cout << "Enter value for check on even/odd: ";
@@ -95,7 +95,7 @@ inline void evenAndOdd2()
 	}
 }
 
-inline void useWhile()
+void UseWhile()
 {
 	int a = 0;
 	while (a < 5) // условный цикл с пред-условием
@@ -106,7 +106,7 @@ inline void useWhile()
 
 }
 
-inline void useDoWhile()
+void UseDoWhile()
 {
 	int a = 0;
 	do // условный цикл с пост-условием
@@ -116,7 +116,7 @@ inline void useDoWhile()
 	} while (a < 5);
 }
 
-inline void cycle()
+void Cycle()
 {
 	int a = 10;
 	for (int i = 0; i < 10; i++)
@@ -127,11 +127,11 @@ inline void cycle()
 	for (int i = 0; i < a; i++)
 	{
 		a--;
-		cout << "Iteration Value" << endl << i << ' ' <<  a << endl;
+		cout << "Iteration Value" << endl << i << ' ' << a << endl;
 	}
 }
 
-inline void cycleEnd()
+void CycleEnd()
 {
 	int a = 10;
 	for (int i = 0; i < 10; i++)
@@ -146,14 +146,14 @@ inline void cycleEnd()
 	cout << endl << "A is " << a << endl;
 }
 
-inline void last()
+void ExplicitType()
 {
 	int a = 5;
 	int b = 3;
 	float z;
 	// Неявное приведение типов
 	z = a;
-	cout <<  "Value of z is " << z << endl;
+	cout << "Value of z is " << z << endl;
 	// Ошибка - невозможное приведение типов!
 	a = z;
 	// Явное приведение типов
