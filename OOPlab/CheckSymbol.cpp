@@ -4,7 +4,7 @@
 
 using namespace std;
 
-//TODO: Комментарий к функции
+//Ввод и проверка строки на наличие латинских символов
 int CheckSymbol()
 {
 	string string;

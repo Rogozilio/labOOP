@@ -14,9 +14,11 @@ int GetRootsLink(int a, int b, int c, double& x1, double& x2);
 void SummNumbers(int value1, int value2);
 void SummNumbers(double value1, double value2);
 void SummNumbers(int value1, double value2);
-//Функции демонстрирующие использование глобальных переменных
+//Функции демонстрирующие использование глобальных переменных(+ 2 к глобальной переменной)
 void GlobalPlusTwo();
+//Функции демонстрирующие использование глобальных переменных(* 3 глобальную переменную)
 void GlobalMultiplyThree();
+//Функции демонстрирующие использование глобальных переменных(присваивание 1 к глобальной переменной)
 void GlobalEqualsOne();
 //Функция возводит число base в степень power
 int GetPower(int base, int power);

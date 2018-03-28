@@ -7,18 +7,19 @@
 #include "lab1/lab1.h"
 #include "lab2/lab2.h"
 #include "lab3/lab3.h"
-#include "lab4/lab4.h"
 #include "lab3/MenuEnum.h"
 #include "lab3/Person.h"
-#include "lab4/StructPerson.h"
+#include "lab4/lab4.h"
+#include "lab4/PersonList4.h"
 #include "lab4/Stack.h"
-
+#include "lab5/PersonList.h"
+#include "lab5/PersonListItem.h"
+#include "lab5/Person5.h"
 
 using namespace std;
 
 void lab1()
 {
-	setlocale(LC_ALL, "rus");
 	int key;
 	bool isMenu = true;
 	while (isMenu)
@@ -88,7 +89,6 @@ void lab1()
 
 void lab2()
 {
-	setlocale(LC_ALL, "rus");
 	srand(time(NULL));
 	int key;
 	bool isMenu = true;
@@ -321,9 +321,6 @@ void lab2()
 
 void lab3()
 {
-	//TODO: подключить русский язык достаточно один раз в функции main(),
-	// вместо дублирования в каждой функции
-	setlocale(LC_ALL, "rus");
 	int key;
 	bool isMenu = true;
 	while (isMenu)
@@ -349,7 +346,7 @@ void lab3()
 				cout << "Введите строку: ";
 				cin.ignore();
 				cin.getline(string, 256);
-				cout << "Длина строки = " << GetLength(string) << endl;
+				cout << "Длина строки = " << GetLengthString(string) << endl;
 				break;
 			}
 			case ConcatenateEnum:
@@ -362,13 +359,17 @@ void lab3()
 				cin.getline(string1, 256);
 				cout << "Введите вторую строку: ";
 				cin.getline(string2, 256);
-				cout << Concatenate(string1, string2) << endl;
+				char* string3 = Concatenate(string1, string2);
+				cout << string3 << endl;
+				delete[] string3;
 				//TODO: Здесь и далее вызываемые функции создают строки динамически, но память нигде не освобождается. Исправить!
+				//?
 				break;
 			}
 			case GetSubstringEnum:
 			{
 				char string[] = { "Hello, World!" };
+				char* newString;
 
 				if (GetSubstring(string, 2, 4) == NULL)
 				{
@@ -376,7 +377,8 @@ void lab3()
 				}
 				else
 				{
-					cout << GetSubstring(string, 2, 4) << endl;
+					newString = GetSubstring(string, 2, 4);
+					cout << newString << endl;
 				}
 
 				if (GetSubstring(string, -3, 3) == NULL)
@@ -385,7 +387,8 @@ void lab3()
 				}
 				else
 				{
-					cout << GetSubstring(string, -3, 3) << endl;
+					newString = GetSubstring(string, -3, 3);
+					cout << newString << endl;
 				}
 
 				if (GetSubstring(string, 2, -4) == NULL)
@@ -394,7 +397,8 @@ void lab3()
 				}
 				else
 				{
-					cout << GetSubstring(string, 2, -4) << endl;
+					newString = GetSubstring(string, 2, -4);
+					cout << newString << endl;
 				}
 
 				if (GetSubstring(string, 7, 8) == NULL)
@@ -403,8 +407,10 @@ void lab3()
 				}
 				else
 				{
-					cout << GetSubstring(string, 7, 8) << endl;
+					newString = GetSubstring(string, 7, 8);
+					cout << newString << endl;
 				}
+				delete[] newString;
 				break;
 			}
 			case FindSubstringEnum:
@@ -431,13 +437,11 @@ void lab3()
 				char path[100];
 				char name[100];
 				char extension[100];
-				SplitFilename("d:\\folder\\file.exe", path, name, extension);
-				SplitFilename("d:\\folder\\subfolder\\file.exe", path, name, extension);
-				SplitFilename("d:\\folder\\subfolder\\file", path, name, extension);
-				SplitFilename("file.txt", path, name, extension);
-				SplitFilename("d:\\folder\\.exe", path, name, extension);
-				SplitFilename("d:\\fo lder\\file.exe", path, name, extension);
-				SplitFilename("d:\\folder\\file.dpf.dfl.xtx.exe", path, name, extension);
+				SplitFilenamePrint( SplitFilename("d:\\folder\\file.exe", path, name, extension), path, name, extension);
+				SplitFilenamePrint( SplitFilename("d:\\folder\\subfolder\\file.exe", path, name, extension), path, name, extension);
+				SplitFilenamePrint( SplitFilename("d:\\folder\\subfolder\\file", path, name, extension), path, name, extension);
+				SplitFilenamePrint( SplitFilename("file.txt", path, name, extension), path, name, extension);
+				SplitFilenamePrint( SplitFilename("d:\\folder\\.exe", path, name, extension), path, name, extension);
 				break;
 			}
 			case ReplaceTabsOnSpacesEnum:
@@ -462,7 +466,7 @@ void lab3()
 				break;
 			}
 			case 0:
-			{//TODO: Выход на 0 не работает.
+			{
 				isMenu = false;
 				break;
 			}
@@ -477,12 +481,9 @@ void lab3()
 
 void lab4()
 {
-	setlocale(LC_ALL, "rus");
 	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
 	Stack* stack = NULL;
-	PersonList* person = new PersonList;
-	PersonList* head = NULL;
-	PersonList* tail = NULL;
+	PersonList4* person = new PersonList4;
 	int key;
 	bool isMenu = true;
 	while (isMenu)
@@ -508,22 +509,22 @@ void lab4()
 		{
 			case 1:
 			{
-				person = Add(person->Person, head, tail);
+				AddPerson(person, MakeRandomPerson());
 				cout << endl << "Элемент добавлен " << endl << endl;
 				break;
 			}
 			case 2:
 			{
-				Show(head);
+				ShowList(person->Head);
 				break;
 			}
 			case 3:
 			{
 				int index = 0;
-				PersonList* newPerson = new PersonList;
+				PersonLab4* newPerson = new PersonLab4;
 				cout << "Введите индекс: ";
 				cin >> index;
-				person = Get(index,head);
+				newPerson = Get(index, person);
 				cout << endl << newPerson << endl;
 				break;
 			}
@@ -532,22 +533,22 @@ void lab4()
 				int index = 0;
 				cout << "Введите индекс: ";
 				cin >> index;
-				Remove(index, head, tail);
+				RemovePerson(index, person);
 				break;
 			}
 			case 5:
 			{
 				int index = 0;
-				PersonList* newPerson = new PersonList;
+				PersonListItem4* newPerson = new PersonListItem4;
 				newPerson->Person = MakeRandomPerson();
 				cout << "Введите индекс: ";
 				cin >> index;
-				Insert(newPerson->Person, index, head);
+				InsertPerson(newPerson->Person, index, person);
 				break;
 			}
 			case 6:
 			{
-				Clear(head, tail);
+				Clear(person);
 				cout << endl << "Очистка завершена " << endl << endl;
 				break;
 			}
@@ -611,6 +612,77 @@ void lab4()
 				cout << "Повторите ввод  ";
 				break;
 			}
+		}
+	}
+}
+
+void lab5()
+{
+
+	PersonList Person1;
+	int key;
+	bool isMenu = true;
+	while (isMenu)
+	{
+		cout << "1) Добавление элемента списка" << endl
+			<< "2) Вывод списка на экран" << endl
+			<< "3) Вернуть указатель по индексу" << endl
+			<< "4) Удаление элемента списка по индексу" << endl
+			<< "5) Перемещение элемента person по индексу" << endl
+			<< "6) Очистить список" << endl
+			<< "7) Добавить элемент в стек (Push)" << endl
+			<< "0) Выход из программы" << endl;
+		key = CheckSymbol();
+
+		switch (key)
+		{
+		case 1:
+		{
+			Person5 persona = persona.GetRandomPerson();
+			Person1.Add(&persona);
+			cout << "Элемент добавлен успешно" << endl;
+			break;
+		}
+		case 2:
+		{
+			Person1.Show();
+			break;
+		}
+		case 3:
+		{
+
+			break;
+		}
+		case 4:
+		{
+
+			break;
+		}
+		case 5:
+		{
+
+			break;
+		}
+		case 6:
+		{
+
+			break;
+		}
+		case 7:
+		{
+
+			break;
+		}
+		case 0:
+		{
+			isMenu = false;
+			break;
+		}
+		default:
+		{
+			cout << "Повторите ввод  ";
+			break;
+		}
 		}
 	}
 }

@@ -15,26 +15,33 @@ void Push(Stack*& stack, int value)
 int Pop(Stack*& stack)
 {
 	//TODO: использовать функцию IsEmpty()
-	if (stack == NULL)
+	//исправлено
+	if (IsEmpty)
 	{
 		//TODO: а если мы храним в стеке значение "-1", 
 		// то как его отличить от возвращаемого кода ошибки?
-		return -1;
+		//исправлено
+		return NULL;
 	}
 	int temp = stack->Value;
+	Stack* newStack = stack;
 	//TODO: утечка памяти
+	//исправлено
 	stack = stack->Next;
+	delete newStack;
 	return temp;
 }
 
 int Top(Stack*& stack)
 {
 	//TODO: использовать функцию IsEmpty()
-	if (stack == NULL)
+	//исправлено
+	if (IsEmpty)
 	{
 		//TODO: а если мы храним в стеке значение "-1", 
 		// то как его отличить от возвращаемого кода ошибки?
-		return -1;
+		//исправлено
+		return NULL;
 	}
 	return stack->Value;
 }

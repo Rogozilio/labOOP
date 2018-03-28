@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int GetLength(char* string)
+int GetLengthString(char* string)
 {
 	int length = 0;
 	for (int i = 0; string[i] != 0; i++)
@@ -19,36 +19,35 @@ char* Concatenate(char* string1, char* string2)
 {
 	//TODO: Если сумма длин входных строк будет больше 100, то функция аварийно завершит программу
 	//TODO: Исправить функцию, чтобы выделялось точно нужное количество символов
-	char* string3 = new char[100];
+	//исправлено
+	char* string3 = new char [GetLengthString(string1) + GetLengthString(string2)];
 	int j = 0;
 	
 	//TODO: Лучше делать двумя отдельными циклами.
 	// сумма длин строк под условием выхода цикла - нестандартное, а следовательно плохо читаемое решение
-	for (int i = 0; i < GetLength(string1) + GetLength(string2); i++)
+	//исправлено
+	for (int i = 0; i < GetLengthString(string1); i++)
 	{
-		if (i < GetLength(string1))
-		{
-			string3[i] = string1[i];
-		}
-		else
-		{
-			string3[i] = string2[j++];
-		}
+		string3[j++] = string1[i];
 	}
-	string3[GetLength(string1) + GetLength(string2)] = 0;
+	for (int i = 0; i < GetLengthString(string2); i++)
+	{
+		string3[j++] = string2[i];
+	}
+	string3[GetLengthString(string1) + GetLengthString(string2)] = 0;
 	return string3;
 }
 
 char* GetSubstring(char* string, int startIndex, int charCount)
 {
-	//TODO: Если charCount больше 100, то функция аварийно завершит программу
-	//TODO: Исправить функцию, чтобы выделялось точно нужное количество символов
-	char* newString = new char[100];
-
-	if (startIndex < 0 || charCount < 0 || startIndex + charCount - 1 > GetLength(string))
+	if (startIndex < 0 || charCount < 0 || startIndex + charCount - 1 > GetLengthString(string))
 	{ 
 		return NULL;
 	}
+	//TODO: Если charCount больше 100, то функция аварийно завершит программу
+	//TODO: Исправить функцию, чтобы выделялось точно нужное количество символов
+	//исправлено
+	char* newString = new char[charCount];
 
 	for (int i = 0; i != charCount; i++)
 	{
@@ -67,7 +66,7 @@ int FindSubstring(char* string, char* subString)
 		if (string[i] != subString[j])
 		{
 			index++;
-			if (j == GetLength(subString))
+			if (j == GetLengthString(subString))
 			{
 				break;
 			}
@@ -78,7 +77,7 @@ int FindSubstring(char* string, char* subString)
 		}
 	}
 
-	if (j != GetLength(subString))
+	if (j != GetLengthString(subString))
 	{			
 		return -1;
 	}
@@ -91,7 +90,9 @@ int FindSubstring(char* string, char* subString)
 char* Uppercase(char* string)
 {
 	//TODO: Аналогично предыдущим функциям
-	char* newString = new char[100];
+	//исправлено
+	char* newString = new char[GetLengthString(string)];
+	int grow = -32;
 
 	for (int i = 0; string[i] != 0; i++)
 	{
@@ -99,14 +100,15 @@ char* Uppercase(char* string)
 		{
 			//TODO: 32 - магическое число, ухудшающее читаемость кода.
 			// Реализовать функцию без магического числа
-			newString[i] = (int)string[i] - 32;
+			//исправлено
+			newString[i] = (int)string[i] + grow;
 		}
 		else
 		{
 			newString[i] = string[i];
 		}
 	}
-	newString[GetLength(string)] = 0;
+	newString[GetLengthString(string)] = 0;
 
 	return newString;
 }
@@ -114,7 +116,9 @@ char* Uppercase(char* string)
 char* Lowercase(char* string)
 {
 	//TODO: Аналогично предыдущим функциям
-	char* newString = new char[100];
+	//исправлено
+	char* newString = new char[GetLengthString(string)];
+	int grow = -32;
 
 	for (int i = 0; string[i] != 0; i++)
 	{
@@ -122,19 +126,20 @@ char* Lowercase(char* string)
 		{
 			//TODO: 32 - магическое число, ухудшающее читаемость кода.
 			// Реализовать функцию без магического числа
-			newString[i] = (int)string[i] + 32;
+			//исправлено
+			newString[i] = (int)string[i] - grow;
 		}
 		else
 		{
 			newString[i] = string[i];
 		}
 	}
-	newString[GetLength(string)] = 0;
+	newString[GetLengthString(string)] = 0;
 
 	return newString;
 }
 
-void SplitFilename(char* source, char* path, char* name, char* extension)
+int SplitFilename(char* source, char* path, char* name, char* extension)
 {
 	int pathIndex = 0;
 	int extensionIndex = 0;
@@ -159,7 +164,7 @@ void SplitFilename(char* source, char* path, char* name, char* extension)
 	}
 	if (extensionIndex == 0)
 	{
-		extensionIndex = GetLength(source);
+		extensionIndex = GetLengthString(source);
 	}
 	
 	for (int i = 0; source[i] != 0; i++)
@@ -182,17 +187,30 @@ void SplitFilename(char* source, char* path, char* name, char* extension)
 	extension[k] = 0;
 	if (j != 0)
 	{
+		return j;
+	}
+	else
+	{
+		return NULL;
+	}
+}
+
+void SplitFilenamePrint(int value, char* path, char* name, char* extension)
+{
+	if (value != NULL)
+	{
 		//TODO: функции бизнес-логики ничего не должны выводить на экран
+		//исправлено
 		cout << "path: " << path << endl;
 		cout << "name: " << name << endl;
 		cout << "extension: " << extension << endl << endl;
 	}
 	else
 	{
-		path = name = extension = NULL;
 		//TODO: функции бизнес-логики ничего не должны выводить на экран
+		//исправлено
 		cout << "path: NULL" << endl;
-		cout << "name: NULL"  << endl;
+		cout << "name: NULL" << endl;
 		cout << "extension: NULL" << endl << endl;
 	}
 }
@@ -200,10 +218,11 @@ void SplitFilename(char* source, char* path, char* name, char* extension)
 char* ReplaceTabsOnSpaces(char* string, int numberSpace)
 {
 	//TODO: Аналогично предыдущим функциям
-	char* newString = new char[100];
+	//исправлено
+	char* newString = new char[GetLengthString(string) * numberSpace];
 	int newStringIndex = 0;
 	int j = 0;
-	for (int i = 0; i < GetLength(string); i++)
+	for (int i = 0; i < GetLengthString(string); i++)
 	{
 		if (string[i] == '\t')
 		{
@@ -227,10 +246,11 @@ char* ReplaceTabsOnSpaces(char* string, int numberSpace)
 char* ReplaceSpacesOnTabs(char* string, int numberSpace)
 {
 	//TODO: Аналогично предыдущим функциям
-	char* newString = new char[100];
+	//исправлено
+	char* newString = new char[GetLengthString(string)];
 	int j = 0;
 	int newStringIndex = 0;
-	for (int i = 0; i < GetLength(string); i++)
+	for (int i = 0; i < GetLengthString(string); i++)
 	{
 		if (string[i] == ':' && (i + 1) % numberSpace == 0 && i != 0)
 		{

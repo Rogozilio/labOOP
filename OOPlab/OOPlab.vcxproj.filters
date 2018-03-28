@@ -25,18 +25,27 @@
     <Filter Include="Header Files\lab4">
       <UniqueIdentifier>{6c3809c4-4339-42d3-abf4-3b06d8a1128b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\lab1">
+      <UniqueIdentifier>{6191d39f-48b6-4cb8-a091-81dd0c83aac2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lab2">
+      <UniqueIdentifier>{8d6dd5e6-3a16-4709-ab08-3f11b3afb6bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lab3">
+      <UniqueIdentifier>{45906183-3b5c-4e8e-a57c-f33e5f22d6ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lab4">
+      <UniqueIdentifier>{7754131b-4423-4824-a6eb-e6cc0ccde2c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lab5">
+      <UniqueIdentifier>{4d8bc480-37d7-4691-9fb0-5f8fbc3d0329}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\lab5">
+      <UniqueIdentifier>{4fc15f2f-dcf8-4142-9517-e661d7c13229}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lab1\lab1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lab2\lab2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lab3\lab3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="menu.cpp">
@@ -45,11 +54,23 @@
     <ClCompile Include="CheckSymbol.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="lab1\lab1.cpp">
+      <Filter>Source Files\lab1</Filter>
+    </ClCompile>
+    <ClCompile Include="lab2\lab2.cpp">
+      <Filter>Source Files\lab2</Filter>
+    </ClCompile>
+    <ClCompile Include="lab3\lab3.cpp">
+      <Filter>Source Files\lab3</Filter>
+    </ClCompile>
     <ClCompile Include="lab4\lab4.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\lab4</Filter>
     </ClCompile>
     <ClCompile Include="lab4\Stack.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\lab4</Filter>
+    </ClCompile>
+    <ClCompile Include="lab5\PersonList.cpp">
+      <Filter>Source Files\lab5</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -74,16 +95,28 @@
     <ClInclude Include="lab4\lab4.h">
       <Filter>Header Files\lab4</Filter>
     </ClInclude>
-    <ClInclude Include="lab4\map4.h">
-      <Filter>Header Files\lab4</Filter>
-    </ClInclude>
     <ClInclude Include="lab4\person4.h">
       <Filter>Header Files\lab4</Filter>
     </ClInclude>
-    <ClInclude Include="lab4\StructPerson.h">
+    <ClInclude Include="lab4\Stack.h">
       <Filter>Header Files\lab4</Filter>
     </ClInclude>
-    <ClInclude Include="lab4\Stack.h">
+    <ClInclude Include="lab4\StackItem.h">
+      <Filter>Header Files\lab4</Filter>
+    </ClInclude>
+    <ClInclude Include="lab5\Person5.h">
+      <Filter>Header Files\lab5</Filter>
+    </ClInclude>
+    <ClInclude Include="lab5\PersonList.h">
+      <Filter>Header Files\lab5</Filter>
+    </ClInclude>
+    <ClInclude Include="lab5\PersonListItem.h">
+      <Filter>Header Files\lab5</Filter>
+    </ClInclude>
+    <ClInclude Include="lab4\PersonList4.h">
+      <Filter>Header Files\lab4</Filter>
+    </ClInclude>
+    <ClInclude Include="lab4\PersonListItem4.h">
       <Filter>Header Files\lab4</Filter>
     </ClInclude>
   </ItemGroup>

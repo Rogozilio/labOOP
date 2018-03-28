@@ -1,31 +1,35 @@
 #pragma once
 #include "Person4.h"
-#include "StructPerson.h"
+#include "PersonList4.h"
+#include "PersonListItem4.h"
 
 
 //TODO: Правильнее назвать файл не lab4, а PersonList
+//PersonList уже существует
 //TODO: Неправильная реализация!
 // Функция Add (добавить) не должна ничего возвращать
+//исправлено
 //Добавление элемента в список
-PersonList* Add(PersonLab4& person, PersonList*& head, PersonList*& tail);
-
+void AddPerson(PersonList4* list, PersonLab4& person);
 //Получение длины списка
-int GetLength(PersonList* head);
+int GetLength(PersonListItem4* temp);
 //Вывести список на экран
-void Show(PersonList* head);
+void ShowList(PersonListItem4* temp);
 //TODO: Неправильная реализация!
 // Функции должна возвращать Person, а не PersonList
+//исправлено
 //Получение указателя списка по индексу
-PersonList* Get(int index, PersonList* head);
+PersonLab4* Get(int index, PersonList4* head);
 //Удаление элемента списка по индексу
-void Remove(int index, PersonList*& head, PersonList*& tail);
+void RemovePerson(int index, PersonList4* temp);
 //Замена значения типа Person по индексу
-void Insert(PersonLab4& person, int index, PersonList* head);
+void InsertPerson(PersonLab4& person, int index, PersonList4* head);
 //TODO: Неправильная реализация!
 // Функция должна принимать одну переменную PersonList, внутри которой
 // должны содержаться ссылки на голову/хвост списка
+//исправлено
 //Очистка списка
-void Clear(PersonList*& head, PersonList*& tail);
+void Clear(PersonList4* temp);
 //Назначение cлучайных данных для значения Person
 PersonLab4& MakeRandomPerson();
 void lab4();

@@ -1,7 +1,8 @@
 #pragma once
-//TODO: добавить комментарий к типу данных
 //TODO: не надо использовать слово Enum в названии перечислений
-enum MenuEnum
+//исправлено
+//Меню для лабы 3
+enum Menu
 {
 	GetLengthEnum = 1,
 	ConcatenateEnum,

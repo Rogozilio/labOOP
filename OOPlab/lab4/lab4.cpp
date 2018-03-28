@@ -1,9 +1,10 @@
 #include <iostream>
 #include <ctime>
 #include <Windows.h>
-#include "map4.h"
+#include <map>
 #include "person4.h"
-#include "StructPerson.h"
+#include "PersonList4.h"
+#include "PersonListItem4.h"
 
 using namespace std;
 
@@ -13,6 +14,45 @@ PersonLab4& MakeRandomPerson()
 {
 		srand(time(NULL));
 		PersonLab4* person = new PersonLab4;
+		//TODO: словарь в глобальной области видимости - неправильно!
+		// Он должен создаваться только внутри функции для генерации случайный людей
+		//исправлено
+		map <int, string> surname = { { 0, "Исаков" },
+										{ 1, "Зиновьев" },
+										{ 2, "Терентьев" },
+										{ 3, "Ефимов" },
+										{ 4, "Иванков" },
+										{ 5, "Абрамов" },
+										{ 6, "Горбачёв" },
+										{ 7, "Пахомов" },
+										{ 8, "Коновалов" },
+										{ 9, "Земсков" },
+										{ 10, "Рогов" },
+										{ 11, "Румянцев" },
+										{ 12, "Лаврентьев" },
+										{ 13, "Копылов" },
+										{ 14, "Лапшов" },
+										{ 15, "Корнилов" } };
+
+		//TODO: словарь в глобальной области видимости - неправильно!
+		// Он должен создаваться только внутри функции для генерации случайный людей
+		//исправлено
+		map <int, string> name = { { 0, "Егор" },
+									{ 1, "Павел" },
+									{ 2, "Анатолий" },
+									{ 3, "Георгий" },
+									{ 4, "Всеволод" },
+									{ 5, "Борислав" },
+									{ 6, "Игорь" },
+									{ 7, "Артём" },
+									{ 8, "Семён" },
+									{ 9, "Афанасий" },
+									{ 10, "Вальтер" },
+									{ 11, "Матвей" },
+									{ 12, "Аркадий" },
+									{ 13, "Даниил" },
+									{ 14, "Адольф" },
+									{ 15, "Арнольд" } };
 		person->Surname = surname[rand() % 15];
 		person->Name = name[rand() % 15];
 		person->Age = 10 + rand() % 60;
@@ -27,10 +67,9 @@ PersonLab4& MakeRandomPerson()
 		return *person;
 }
 
-int GetLength(PersonList* head)
+int GetLength(PersonListItem4* temp)
 {
 	int length = 0;
-	PersonList* temp = head;
 	if (temp == NULL)
 	{
 		return 0;
@@ -46,33 +85,31 @@ int GetLength(PersonList* head)
 	}
 }
 
-PersonList* Add(PersonLab4& person, PersonList*& head, PersonList*& tail)
+void AddPerson(PersonList4* list, PersonLab4& person)
 {
-	PersonList* temp = new PersonList;
+	PersonListItem4* temp = new PersonListItem4;
 	//TODO: Неправильно! В итоге ты добавляешь в список не тот Person,
 	// который пришел на вход функции, а случайно сгенерированного.
 	// MakeRandomPerson() - отладочная функция, и может вызываться только в main/lab4menu()
-	temp->Person = MakeRandomPerson();
-	if (head == NULL)
+	//исправлено
+	temp->Person = person;
+	if (list->Head == NULL)
 	{
-		head = temp;
-		tail = temp;
+		list->Head = temp;
+		list->Tail = temp;
 	}
 	else
 	{
-		temp->Prev = tail;
-		tail->Next = temp;
-		tail = temp;
+		temp->Prev = list->Tail;
+		list->Tail->Next = temp;
+		list->Tail = temp;
 	}
-	return temp;
 }
 
-void Show(PersonList* head)
+void ShowList(PersonListItem4* temp)
 {
-	
 	SetConsoleTextAttribute(hStdOut, FOREGROUND_RED);
-	PersonList* temp = head;
-	if (head == NULL)
+	if (temp == NULL)
 	{
 		cout << "List is empty!" << endl;
 	}
@@ -81,25 +118,26 @@ void Show(PersonList* head)
 		while (temp != NULL)
 		{
 			//TODO: если выводить все данные о персоне в одну строку, то тестировать/отлаживать будет удобнее
-			cout << endl << "Фамилия: " << temp->Person.Surname << endl;
-			cout << "Имя: " << temp->Person.Name << endl;
-			cout << "Возраст: " << temp->Person.Age << endl;
-			cout << "Пол: " << temp->Person.Sex << endl << endl;
+			//исправлено
+			cout << endl << "Фамилия: " << temp->Person.Surname
+				<< " | Имя: " << temp->Person.Name
+				<< " | Возраст: " << temp->Person.Age
+				<< " | Пол: " << temp->Person.Sex << endl;
 			temp = temp->Next;
 		}
 	}
 }
 
-PersonList* Get(int index, PersonList* head)
+PersonLab4* Get(int index, PersonList4* temp)
 {
-	PersonList* temp = head;
-	if (index >= 0 && index < GetLength(head))
+	PersonListItem4* list = temp->Head;
+	if (index >= 0 && index < GetLength(temp->Head))
 	{
 		for (int i = 0; i < index; i++)
 		{
-			temp = temp->Next;
+			list = list->Next;
 		}
-		return temp;
+		return &list->Person;
 	}
 	else
 	{
@@ -107,77 +145,126 @@ PersonList* Get(int index, PersonList* head)
 	}
 }
 
-void Remove(int index, PersonList*& head, PersonList*& tail)
+void RemovePerson(int index, PersonList4* temp)
 {
-	PersonList* temp = head;
+	PersonListItem4* list =temp->Head;
 	int numberIndex = 0;
 	//TODO: в случае сложных ветвлений и вложенных условий надо комментировать каждый if
-	if (index >= 0 && index < GetLength(head))
+	//исправлено
+	if (index >= 0 && index < GetLength(temp->Head))//индекс должен входить в область созданых элементов
 	{
 		while (index != numberIndex++)
 		{
-			temp = temp->Next;
+			list = list->Next;
 		}
 
-		if (head == temp)
+		if (list == temp->Head)//если выбраный элемент = первому элементу списка
 		{
-			if (temp->Next == NULL)
+			if (list->Next == NULL)//если следующий элемент пустой
 			{
 				//TODO: утечка памяти
-				head = NULL;
-				tail = NULL;
+				//исправлено
+				delete list;
+				temp->Head = NULL;
+				temp->Tail = NULL;
 			}
 			else
 			{
-				temp->Next->Prev = NULL;
+				list->Next->Prev = NULL;
 				//TODO: утечка памяти
-				head = temp->Next;
+				//исправлено
+				temp->Head = list->Next;
+				delete list;
 			}
 		} 
-		else if (tail == temp)
+		else if (list == temp->Tail)//если выбраный элемент = последнему элементу списка
 		{
 			//TODO: утечка памяти
-			tail->Prev->Next = NULL;
-			tail = tail->Prev;
+			//исправлено
+			temp->Tail->Prev->Next = NULL;
+			temp->Tail = temp->Tail->Prev;
+			delete list;
 		}
 		else
 		{
 			//TODO: утечка памяти
-			temp->Prev->Next = temp->Next;
-			temp->Next->Prev = temp->Prev;
+			//исправлено
+			list->Prev->Next = list->Next;
+			list->Next->Prev = list->Prev;
+			delete list;
 		}
 	}
 }
 
-void Insert(PersonLab4& person, int index, PersonList* head)
+void InsertPerson(PersonLab4& person, int index, PersonList4* temp)
 {
 	//TODO: неправильная реализация!
 	// Insert должен вставлять НОВЫЙ элемент в список, а не заменять старый по указанному индексу
-	PersonList* temp = head;
-	int numberIndex = 0;
-	if (index >= 0 && index < GetLength(head))
+	//исправлено
+	if (temp->Head == NULL || index < 0 || index > GetLength(temp->Head))//индекс должен входить в область созданых элементов
 	{
-		while (index != numberIndex++)
-		{
-			temp = temp->Next;
-		}
-		temp->Person = person;
+		return;
+	}
+
+	PersonListItem4* list = temp->Head;
+	int i = 0;
+	while (i < index)
+	{
+		list = list->Next;
+		i++;
+	};
+
+	if (list == temp->Head)//если выбраный элемент = первому элементу списка
+	{
+		PersonListItem4* newList = new PersonListItem4();
+		newList->Person = person;
+		temp->Head->Prev = newList;
+		newList->Next = temp->Head;
+		temp->Head = newList;
+	}
+	else if (list == temp->Tail)//если выбраный элемент = последнему элементу списка
+	{
+		PersonListItem4* newList = new PersonListItem4();
+		newList->Person = person;
+		temp->Tail->Prev->Next = newList;
+		newList->Prev = temp->Tail->Prev;
+		newList->Next = temp->Tail;
+		temp->Tail->Prev = newList;
+		temp->Tail->Next = NULL;
+	}
+	else if (list != NULL)
+	{
+		PersonListItem4* newList = new PersonListItem4();
+		newList->Person = person;
+		list->Prev->Next = newList;
+		newList->Prev = list->Prev;
+		newList->Next = list;
+		list->Prev = newList;
 	}
 }
 
-void Clear(PersonList*& head, PersonList*& tail)
+void Clear(PersonList4* temp)
 {
-	PersonList* temp = head;
-	for (int i = GetLength(head); i > 0; i--)
+	PersonListItem4* list = temp->Tail;
+	for (int i = GetLength(temp->Head); i > 0; i--)
 	{
-		delete temp;
-		//TODO: если temp удален, то как ты можешь обратиться к его предыдущему элементу?
-		// Программа падает при вызове Clear()? Исправить!
-		// Функцию тестировал?
-		temp = temp->Prev;
+		if (list->Prev != NULL)
+		{
+			//TODO: если temp удален, то как ты можешь обратиться к его предыдущему элементу?
+			// Программа падает при вызове Clear()? Исправить!
+			// Функцию тестировал?
+			//исправлено
+			list = list->Prev;
+			delete list->Next;
+
+		}
+		else
+		{
+			delete list;
+		}
 	}
-	head = NULL;
-	tail = NULL;
+	temp->Head = NULL;
+	temp->Tail = NULL;
 }
 
 

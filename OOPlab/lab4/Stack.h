@@ -1,12 +1,5 @@
 #pragma once
-//TODO: неправильная реализация! Должна быть дополнительная структура StackItem
-//TODO: не надо слово "Структура" в комментарии
-//Структура стек
-struct Stack
-{
-	int Value;
-	struct Stack *Next;
-};
+#include "StackItem.h"
 
 //Добавить элемент в стек
 void Push(Stack*& stack, int value);

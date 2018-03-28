@@ -6,13 +6,13 @@ using namespace std;
 
 int globalVariable = 7;
 
-//TODO: Комментарий к функции
+//Вывод на экран Hello world
 void PrintHelloWorld()
 {
 	cout << "Hello, World!" << endl;
 }
 
-//TODO: Комментарий к функции
+//Калькулятор
 double MakeCalculation(int value1, int value2, char operationKey)
 {
 	switch (operationKey)
@@ -30,7 +30,7 @@ double MakeCalculation(int value1, int value2, char operationKey)
 	}
 }
 
-//TODO: Комментарий к функции
+//Нахождение корней квадратного уравнения (с помощью указателя)
 int GetRootsPointer(int a, int b, int c, double* x1, double* x2)
 {
 	int D = b * b - 4 * a * c;
@@ -59,7 +59,7 @@ int GetRootsPointer(int a, int b, int c, double* x1, double* x2)
 	}
 }
 
-//TODO: Комментарий к функции
+//Нахождение корней квадратного уравнения (с помощью адресса)
 int GetRootsLink(int a, int b, int c, double& x1, double& x2)
 {
 	int D = b * b - 4 * a * c;
@@ -87,13 +87,13 @@ int GetRootsLink(int a, int b, int c, double& x1, double& x2)
 		return 0;
 	}
 }
-//TODO: пустая строка между двумя функциями
+
 //Рассчитать сумму двух целочисленных переменных
 void SummNumbers(int value1, int value2)
 {
 	cout << "Summ of integer is " <<  value1 + value2 << endl;
 }
-//TODO: пустая строка между двумя функциями
+
 //Рассчитать сумму двух целочисленных переменных
 void SummNumbers(double value1, double value2)
 {
@@ -106,25 +106,25 @@ void SummNumbers(int value1, double value2)
 	cout << "Summ of integer and double is " << value1 + value2 << endl << endl;
 }
 
-//TODO: Комментарий к функции
+//Функции демонстрирующие использование глобальных переменных(+ 2 к глобальной переменной)
 void GlobalPlusTwo()
 {
 	globalVariable += 2;
 }
 
-//TODO: Комментарий к функции
+//Функции демонстрирующие использование глобальных переменных(* 3 глобальную переменную)
 void GlobalMultiplyThree()
 {
 	globalVariable *= 3;
 }
 
-//TODO: Комментарий к функции
+//Функции демонстрирующие использование глобальных переменных(присваивание 1 к глобальной переменной)
 void GlobalEqualsOne()
 {
 	globalVariable = 1;
 }
 
-//TODO: Комментарий к функции
+//Функция возводит число base в степень power
 int GetPower(int base, int power)
 {
 	return power != 0 
@@ -132,7 +132,7 @@ int GetPower(int base, int power)
 		: 1;
 }
 
-//TODO: Комментарий к функции
+//Игра - угадай число
 int GuessRandomNumber(int guessNumber, int enteredNumber, int shots)
 {
 	for (; shots != 0; shots--)
@@ -157,7 +157,7 @@ int GuessRandomNumber(int guessNumber, int enteredNumber, int shots)
 	cout << "Вы проиграли =(" << endl;
 }
 
-//TODO: Комментарий к функции
+//Функции сортировки массива с различными способами передачи массива в функцию
 void ArraySorting1(int array[10])
 {
 	bool isFinish = false;
@@ -180,13 +180,13 @@ void ArraySorting1(int array[10])
 	cout << endl;
 }
 
-//TODO: Комментарий к функции
+//Функции сортировки массива с различными способами передачи массива в функцию
 void ArraySorting2(int array[], int arraySize)
 {
 	ArraySorting3(array, arraySize);
 }
 
-//TODO: Комментарий к функции
+//Функции сортировки массива с различными способами передачи массива в функцию
 void ArraySorting3(int* array, int arraySize)
 {
 	bool isFinish = false;
@@ -209,7 +209,7 @@ void ArraySorting3(int* array, int arraySize)
 	cout << endl;
 }
 
-//TODO: Комментарий к функции
+//Перемножение матриц
 void MultiplyMatrices(int** matr1, int** matr2,int row, int inner,  int col)
 {
 	int **matr3 = new int *[row];
