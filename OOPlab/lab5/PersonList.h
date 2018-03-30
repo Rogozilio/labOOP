@@ -5,10 +5,9 @@
 class PersonList
 {
 private: 
-	PersonListItem* _head; //указатель на голову списка
+	PersonListItem* _head = NULL; //указатель на голову списка
 	int _count; //количество элементов в списке
-public: 
-	PersonList(); //конструктор класса
+public:
 	void Add(Person5* person); //добавить человека в список
 	Person5* Find(int index); //найти человека по указанному индексу
 	int IndexOf(Person5* person); //вернуть индекс человека, если он есть в списке
@@ -17,6 +16,7 @@ public:
 	void Clear(); //очистить список
 	int GetCount(); //получить количество элементов
 	void Show();//вывод списка на экран
+	~PersonList(); //Деструктор класса
 };
 
 void lab5();

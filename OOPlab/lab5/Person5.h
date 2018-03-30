@@ -12,5 +12,4 @@ public:
 	string Surname;
 	int Age;
 	Sex Sex;
-	Person5 GetRandomPerson();
 };

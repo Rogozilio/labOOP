@@ -4,7 +4,6 @@
 #include <ctime>
 #include <cstdio>
 #include <Windows.h>
-#include "lab1/lab1.h"
 #include "lab2/lab2.h"
 #include "lab3/lab3.h"
 #include "lab3/MenuEnum.h"
@@ -15,77 +14,9 @@
 #include "lab5/PersonList.h"
 #include "lab5/PersonListItem.h"
 #include "lab5/Person5.h"
+#include "lab5/PersonTools.h"
 
 using namespace std;
-
-void lab1()
-{
-	int key;
-	bool isMenu = true;
-	while (isMenu)
-	{
-		cout << "1) Hello World " << endl
-			<< "2) Сумма целочисленных переменных " << endl
-			<< "3) Деление чисел" << endl
-			<< "4) Ввод/Вывод переменных" << endl
-			<< "5) Работа с указателем" << endl
-			<< "6) Четное/Нечетное число" << endl
-			<< "7) Кратность числа" << endl
-			<< "8) Цикл с пред-условием" << endl
-			<< "9) Цикл с пост-условием" << endl
-			<< "10) Итерационный цикл" << endl
-			<< "11) Оператор break" << endl
-			<< "12) Явное и неявное преобразование" << endl
-			<< "0) Выход из программы" << endl;
-		key = CheckSymbol();
-
-		switch (key)
-		{
-			case 1:
-				HelloWorld();
-				break;
-			case 2:
-				SumVariables();
-				break;
-			case 3:
-				DivVariables();
-				break;
-			case 4:
-				InputVariables();
-				break;
-			case 5:
-				Pointer();
-				break;
-			case 6:
-				EvenAndOdd();
-				break;
-			case 7:
-				EvenAndOdd2();
-				break;
-			case 8:
-				UseWhile();
-				break;
-			case 9:
-				UseDoWhile();
-				break;
-			case 10:
-				Cycle();
-				break;
-			case 11:
-				CycleEnd();
-				break;
-			case 12:
-				ExplicitType();
-				break;
-			case 0:
-				isMenu = false;
-				break;
-			default:
-				cout << "Повторите ввод  ";
-				break;
-		}
-	}
-}
 
 void lab2()
 {
@@ -627,10 +558,10 @@ void lab5()
 		cout << "1) Добавление элемента списка" << endl
 			<< "2) Вывод списка на экран" << endl
 			<< "3) Вернуть указатель по индексу" << endl
-			<< "4) Удаление элемента списка по индексу" << endl
-			<< "5) Перемещение элемента person по индексу" << endl
-			<< "6) Очистить список" << endl
-			<< "7) Добавить элемент в стек (Push)" << endl
+			<< "4) Вернуть индекс человека, если он есть в списке" << endl
+			<< "5) Удалить человека из списка" << endl
+			<< "6) Удалить человека из списка по индексу" << endl
+			<< "7) Очистка списка" << endl
 			<< "0) Выход из программы" << endl;
 		key = CheckSymbol();
 
@@ -638,7 +569,7 @@ void lab5()
 		{
 		case 1:
 		{
-			Person5 persona = persona.GetRandomPerson();
+			Person5 persona = PersonTools::GetRandomPerson();
 			Person1.Add(&persona);
 			cout << "Элемент добавлен успешно" << endl;
 			break;
@@ -650,27 +581,38 @@ void lab5()
 		}
 		case 3:
 		{
-
+			int index = 0;
+			cout << "Введите индекс: ";
+			cin >> index;
+			cout << Person1.Find(index) << endl;
 			break;
 		}
 		case 4:
 		{
-
+			int index = rand() % Person1.GetCount();
+			cout << Person1.IndexOf(Person1.Find(index)) << endl;
 			break;
 		}
 		case 5:
 		{
-
+			int index = rand() % (Person1.GetCount() - 1);
+			Person1.Remove(Person1.Find(index));
+			cout << "Элемент удален" << endl;
 			break;
 		}
 		case 6:
 		{
-
+			int index = 0;
+			cout << "Введите индекс: ";
+			cin >> index;
+			Person1.RemoveAt(index);
+			cout << "Элемент удален" << endl;
 			break;
 		}
 		case 7:
 		{
-
+			Person1.Clear();
+			cout << "Очистка завершина" << endl;
 			break;
 		}
 		case 0:

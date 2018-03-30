@@ -26,3 +26,4 @@ char* ReplaceSpacesOnTabs(char* string, int numberTabs);
 Person ReadPerson();
 //Выполняет вывод персоны на экран
 void PrintPerson(Person& person);
+int CheckSymbol();

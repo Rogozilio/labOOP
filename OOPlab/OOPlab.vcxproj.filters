@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\lab1">
-      <UniqueIdentifier>{5d2c2657-df02-46ce-b2bf-133a5a3b1182}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\lab2">
       <UniqueIdentifier>{4f24cfae-ed04-48ec-909a-397c867722bf}</UniqueIdentifier>
     </Filter>
@@ -24,9 +21,6 @@
     </Filter>
     <Filter Include="Header Files\lab4">
       <UniqueIdentifier>{6c3809c4-4339-42d3-abf4-3b06d8a1128b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\lab1">
-      <UniqueIdentifier>{6191d39f-48b6-4cb8-a091-81dd0c83aac2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\lab2">
       <UniqueIdentifier>{8d6dd5e6-3a16-4709-ab08-3f11b3afb6bc}</UniqueIdentifier>
@@ -54,9 +48,6 @@
     <ClCompile Include="CheckSymbol.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="lab1\lab1.cpp">
-      <Filter>Source Files\lab1</Filter>
-    </ClCompile>
     <ClCompile Include="lab2\lab2.cpp">
       <Filter>Source Files\lab2</Filter>
     </ClCompile>
@@ -74,9 +65,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="lab1\lab1.h">
-      <Filter>Header Files\lab1</Filter>
-    </ClInclude>
     <ClInclude Include="lab2\lab2.h">
       <Filter>Header Files\lab2</Filter>
     </ClInclude>
@@ -118,6 +106,9 @@
     </ClInclude>
     <ClInclude Include="lab4\PersonListItem4.h">
       <Filter>Header Files\lab4</Filter>
+    </ClInclude>
+    <ClInclude Include="lab5\PersonTools.h">
+      <Filter>Header Files\lab5</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

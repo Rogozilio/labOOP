@@ -1,23 +1,18 @@
-
 #include "PersonList.h"
 #include "PersonListItem.h"
+#include "PersonTools.h"
 #include <iostream>
 #include <ctime>
 #include <string>
 
 using namespace std;
 
-PersonList::PersonList()
-{
-
-}
-
 int PersonList::GetCount()
 {
-	PersonListItem* temp = PersonList::_head;
-	PersonList::_count = 0;
+	PersonListItem* temp = _head;
+	_count = 0;
 
-	if (PersonList::_head == NULL)
+	if (_head == NULL)
 	{
 		return 0;
 	}
@@ -25,10 +20,10 @@ int PersonList::GetCount()
 	{
 		while (temp != NULL)
 		{
-			PersonList::_count++;
+			_count++;
 			temp = temp->next;
 		}
-		return PersonList::_count;
+		return _count;
 	}
 }
 
@@ -37,34 +32,37 @@ void PersonList::Add(Person5* person)
 	PersonListItem* temp = new PersonListItem;
 	temp->person = *person;
 
-	if (PersonList::_head == NULL)
+	if (_head == NULL)
 	{
-		PersonList::_head = temp;
+		_head = temp;
 	}
 	else
 	{
-		PersonListItem* beforeTemp = PersonList::_head;
-		while (beforeTemp != NULL)
+		PersonListItem* beforeTemp = _head;
+		while (beforeTemp->next != NULL)
 		{
 			beforeTemp = beforeTemp->next;
 		}
-		beforeTemp = temp;
+		beforeTemp->next = temp;
 	}
 }
 
 Person5* PersonList::Find(int index)
 {
-	PersonListItem* temp = PersonList::_head;
-	for (int i = 0; i < index; i++)
+	if (index >= 0 || index < GetCount())
 	{
-		temp = temp->next;
+		PersonListItem* temp = _head;
+		for (int i = 0; i < index; i++)
+		{
+			temp = temp->next;
+		}
+		return &temp->person;
 	}
-	return &temp->person;
 }
 
 int PersonList::IndexOf(Person5* person)
 {
-	PersonListItem* temp = PersonList::_head;
+	PersonListItem* temp = _head;
 	for (int i = 0; i < GetCount(); i++)
 	{
 		if (&temp->person == person)
@@ -78,7 +76,7 @@ int PersonList::IndexOf(Person5* person)
 
 void PersonList::Remove(Person5* person)
 {
-	PersonListItem* temp = PersonList::_head;
+	PersonListItem* temp = _head;
 	for (int i = 0; i < GetCount(); i++)
 	{
 		if (&temp->person == person)
@@ -91,7 +89,7 @@ void PersonList::Remove(Person5* person)
 
 void PersonList::RemoveAt(int index)
 {
-	PersonListItem* temp = PersonList::_head;
+	PersonListItem* temp = _head;
 	int numberIndex = 0;
 	if (index >= 0 && index < GetCount())//индекс должен входить в область созданых элементов
 	{
@@ -100,52 +98,63 @@ void PersonList::RemoveAt(int index)
 			temp = temp->next;
 		}
 
-		if (temp == PersonList::_head)//если выбраный элемент = первому элементу списка
+		if (temp == _head)//если выбраный элемент = первому элементу списка
 		{
 			if (temp->next == NULL)//если следующий элемент пустой
 			{
 				delete temp;
-				PersonList::_head = NULL;
+				_head = NULL;
 			}
 			else
 			{
-				PersonList::_head = temp->next;
+				_head = temp->next;
 				delete temp;
 			}
 		}
 		else if (temp->next == NULL)//если выбраный элемент = последнему элементу списка
 		{
-			temp = NULL;
+			PersonListItem* beforeTemp = _head;
+			while (beforeTemp->next != temp)
+			{
+				beforeTemp = beforeTemp->next;
+			}
+			beforeTemp->next = NULL;
 			delete temp;
 		}
 		else
 		{
-			temp = temp->next;
-			//delete temp;
+			PersonListItem* beforeTemp = _head;
+			while (beforeTemp->next != temp)
+			{
+				beforeTemp = beforeTemp->next;
+			}
+			beforeTemp->next = temp->next;
+			delete temp;
 		}
 	}
 }
 
 void PersonList::Clear()
 {
-	PersonListItem* temp = PersonList::_head;
+	PersonListItem* temp = _head;
 	while(temp != NULL)
 	{
 		if (temp->next != NULL)
 		{
-			PersonListItem* newTemp = temp->next;
-			delete temp;
-			temp = newTemp;
+			PersonListItem* newTemp = temp;
+			temp = temp->next;
+			delete newTemp;
 		}
 		else
 		{
 			delete temp;
+			break;
 		}
 	}
-	PersonList::_head = NULL;
+	_head = NULL;
 }
 
-Person5 Person5::GetRandomPerson()
+Person5 PersonTools::GetRandomPerson()
 {
 	srand(time(NULL));
 	Person5 person;
@@ -171,8 +180,8 @@ Person5 Person5::GetRandomPerson()
 
 void PersonList::Show()
 {
-	PersonListItem* temp = PersonList::_head;
-	if (PersonList::_head == NULL)
+	PersonListItem* temp = _head;
+	if (_head == NULL)
 	{
 		cout << "List is empty!" << endl;
 	}
@@ -187,4 +196,9 @@ void PersonList::Show()
 			temp = temp->next;
 		}
 	}
+}
+
+PersonList::~PersonList()
+{
+	Clear();
 }
