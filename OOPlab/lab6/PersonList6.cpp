@@ -3,8 +3,8 @@
 #include <ctime>
 #include "Adult.h"
 #include "Child.h"
-#include "lab5/Person5.h"
-#include "lab5\PersonTools.h"
+#include "../lab5/Person5.h"
+#include "../lab5/PersonTools.h"
 
 using namespace std;
 

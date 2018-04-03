@@ -15,8 +15,8 @@
 #include "lab5/PersonListItem.h"
 #include "lab5/Person5.h"
 #include "lab5/PersonTools.h"
-#include "Adult.h"
-#include "Child.h"
+#include "lab6/Adult.h"
+#include "lab6/Child.h"
 
 using namespace std;
 

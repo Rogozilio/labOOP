@@ -157,13 +157,11 @@
     <ClCompile Include="lab4\lab4.cpp" />
     <ClCompile Include="lab4\Stack.cpp" />
     <ClCompile Include="lab5\PersonList.cpp" />
+    <ClCompile Include="lab6\PersonList6.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
-    <ClCompile Include="PersonList6.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Adult.h" />
-    <ClInclude Include="Child.h" />
     <ClInclude Include="lab2\lab2.h" />
     <ClInclude Include="lab3\lab3.h" />
     <ClInclude Include="lab3\MenuEnum.h" />
@@ -179,6 +177,8 @@
     <ClInclude Include="lab5\PersonList.h" />
     <ClInclude Include="lab5\PersonListItem.h" />
     <ClInclude Include="lab5\PersonTools.h" />
+    <ClInclude Include="lab6\Adult.h" />
+    <ClInclude Include="lab6\Child.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

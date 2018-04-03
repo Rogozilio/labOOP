@@ -69,7 +69,7 @@
     <ClCompile Include="lab5\PersonList.cpp">
       <Filter>Source Files\lab5</Filter>
     </ClCompile>
-    <ClCompile Include="PersonList6.cpp">
+    <ClCompile Include="lab6\PersonList6.cpp">
       <Filter>Source Files\lab6</Filter>
     </ClCompile>
   </ItemGroup>
@@ -119,10 +119,10 @@
     <ClInclude Include="lab5\PersonTools.h">
       <Filter>Header Files\lab5</Filter>
     </ClInclude>
-    <ClInclude Include="Adult.h">
+    <ClInclude Include="lab6\Adult.h">
       <Filter>Header Files\lab6</Filter>
     </ClInclude>
-    <ClInclude Include="Child.h">
+    <ClInclude Include="lab6\Child.h">
       <Filter>Header Files\lab6</Filter>
     </ClInclude>
   </ItemGroup>

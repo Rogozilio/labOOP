@@ -1,5 +1,5 @@
 #pragma once
-#include "lab5\Person5.h"
+#include "..\lab5\Person5.h"
 
 class Adult : public Person5
 {
