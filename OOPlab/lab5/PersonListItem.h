@@ -5,6 +5,6 @@
 class PersonListItem
 {
 public:
-	Person5 person;
-	PersonListItem* next = NULL;
+	Person5 person;//элемент списка
+	PersonListItem* next = NULL;// указатель на следующий элемент списка
 };

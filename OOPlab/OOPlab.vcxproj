@@ -159,8 +159,11 @@
     <ClCompile Include="lab5\PersonList.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="PersonList6.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Adult.h" />
+    <ClInclude Include="Child.h" />
     <ClInclude Include="lab2\lab2.h" />
     <ClInclude Include="lab3\lab3.h" />
     <ClInclude Include="lab3\MenuEnum.h" />

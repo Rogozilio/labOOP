@@ -21,6 +21,7 @@ int main()
 		cout << "3)lab3 " << endl;
 		cout << "4)lab4 " << endl;
 		cout << "5)lab5 " << endl;
+		cout << "6)lab6 " << endl;
 		cout << "0)Выход " << endl;
 		numberLab = CheckSymbol();
 
@@ -48,6 +49,11 @@ int main()
 			case 5:
 			{
 				lab5();
+				break;
+			}
+			case 6:
+			{
+				lab6();
 				break;
 			}
 			case 0:

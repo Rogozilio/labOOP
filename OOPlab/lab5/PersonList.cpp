@@ -154,27 +154,39 @@ void PersonList::Clear()
 	_head = NULL;
 }
 
-Person5 PersonTools::GetRandomPerson()
+Person5* PersonTools::GetRandomPerson(bool sex, bool isChild)
 {
-	srand(time(NULL));
-	Person5 person;
-	string surnames[] = { "Holiday","Jacobson","James", "Allford", "Bawerman",
+	Person5* person = new Person5;
+	string surname[] = { "Holiday","Jacobson","James", "Allford", "Bawerman",
 		"MacAdam", "Marlow", "Bosworth", "Neal","Conors",
 		"Daniels", "Parson", "Quincy", "Richards", "Fane" };
-	string names[] = { "Michael","Joshua","Matthew","Ethan","Andrew",
+	string nameMale[] = { "Michael","Joshua","Matthew","Ethan","Andrew",
 		"Alexander", "Tyler", "James", "John","Samuel",
 		"Christian","Logan","Jose","Justin","Gabriel" };
-	person.Surname = surnames[rand() % 15];
-	person.Name = names[rand() % 15];
-	person.Age = 10 + rand() % 60;
-	if ((rand() % 2) == 0)
+	string nameFemale[] = { "Katherine","Roxanne","Dorothy","Candace","Joan",
+		"Helen", "Christine", "Mary", "Roberta","Karen",
+		"Emily","Patricia","Elfreda","Camilla","Sarah" };
+	person->Surname = surname[rand() % 15];
+	if (sex)
 	{
-		person.Sex = Female;
+		person->Name = nameMale[rand() % 15];
+		person->Sex = Male;
 	}
 	else
 	{
-		person.Sex = Male;
+		person->Name = nameFemale[rand() % 15];
+		person->Sex = Female;
 	}
+	
+	if (isChild)
+	{
+		person->Age = 1 + rand() % 17;
+	}
+	else
+	{
+		person->Age = 18 + rand() % 60;
+	}
+
 	return person;
 }
 

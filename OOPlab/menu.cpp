@@ -15,6 +15,8 @@
 #include "lab5/PersonListItem.h"
 #include "lab5/Person5.h"
 #include "lab5/PersonTools.h"
+#include "Adult.h"
+#include "Child.h"
 
 using namespace std;
 
@@ -549,7 +551,6 @@ void lab4()
 
 void lab5()
 {
-
 	PersonList Person1;
 	int key;
 	bool isMenu = true;
@@ -567,64 +568,117 @@ void lab5()
 
 		switch (key)
 		{
-		case 1:
-		{
-			Person5 persona = PersonTools::GetRandomPerson();
-			Person1.Add(&persona);
-			cout << "Элемент добавлен успешно" << endl;
-			break;
+			case 1:
+			{
+				Person5* persona = PersonTools::GetRandomPerson(1,1);
+				Person1.Add(persona);
+				cout << persona->GetDesciption(*persona) << endl;
+				cout << "Элемент добавлен успешно" << endl;
+				break;
+			}
+			case 2:
+			{
+				Person1.Show();
+				break;
+			}
+			case 3:
+			{
+				int index = 0;
+				cout << "Введите индекс: ";
+				cin >> index;
+				cout << Person1.Find(index) << endl;
+				break;
+			}
+			case 4:
+			{
+				int index = rand() % Person1.GetCount();
+				cout << Person1.IndexOf(Person1.Find(index)) << endl;
+				break;
+			}
+			case 5:
+			{
+				int index = rand() % (Person1.GetCount() - 1);
+				Person1.Remove(Person1.Find(index));
+				cout << "Элемент удален" << endl;
+				break;
+			}
+			case 6:
+			{
+				int index = 0;
+				cout << "Введите индекс: ";
+				cin >> index;
+				Person1.RemoveAt(index);
+				cout << "Элемент удален" << endl;
+				break;
+			}
+			case 7:
+			{
+				Person1.Clear();
+				cout << "Очистка завершина" << endl;
+				break;
+			}
+			case 0:
+			{
+				isMenu = false;
+				break;
+			}
+			default:
+			{
+				cout << "Повторите ввод  ";
+				break;
+			}
 		}
-		case 2:
+	}
+}
+
+void lab6()
+{
+	PersonList Person1;
+	int key;
+	bool isMenu = true;
+	while (isMenu)
+	{
+		cout << "1) Добавление элемента списка и вывод на экран" << endl
+			<< "0) Выход из программы" << endl;
+		key = CheckSymbol();
+
+		switch (key)
 		{
-			Person1.Show();
-			break;
-		}
-		case 3:
-		{
-			int index = 0;
-			cout << "Введите индекс: ";
-			cin >> index;
-			cout << Person1.Find(index) << endl;
-			break;
-		}
-		case 4:
-		{
-			int index = rand() % Person1.GetCount();
-			cout << Person1.IndexOf(Person1.Find(index)) << endl;
-			break;
-		}
-		case 5:
-		{
-			int index = rand() % (Person1.GetCount() - 1);
-			Person1.Remove(Person1.Find(index));
-			cout << "Элемент удален" << endl;
-			break;
-		}
-		case 6:
-		{
-			int index = 0;
-			cout << "Введите индекс: ";
-			cin >> index;
-			Person1.RemoveAt(index);
-			cout << "Элемент удален" << endl;
-			break;
-		}
-		case 7:
-		{
-			Person1.Clear();
-			cout << "Очистка завершина" << endl;
-			break;
-		}
-		case 0:
-		{
-			isMenu = false;
-			break;
-		}
-		default:
-		{
-			cout << "Повторите ввод  ";
-			break;
-		}
+			case 1:
+			{
+				int countPerson;
+				cout << "Введите количество персон для создания: ";
+				cin >> countPerson;
+				while (countPerson != 0)
+				{
+					Person5* person = PersonTools::GetRandomPerson(rand() % 2, rand() % 2);
+					Person1.Add(person);
+					if (person->GetAge() < 18)
+					{
+						cout << endl << "This is a child" << endl;
+						Child child;
+						cout << child.GetDesciption(*person) << endl;
+					}
+					else
+					{
+						cout << endl << "This is an adult" << endl;
+						Adult adult;
+						cout << adult.GetDesciption(*person) << endl;
+					}
+					countPerson--;
+				}
+				break;
+			}
+			case 0:
+			{
+				isMenu = false;
+				break;
+			}
+			default:
+			{
+				cout << "Повторите ввод  ";
+				break;
+			}
 		}
 	}
 }
