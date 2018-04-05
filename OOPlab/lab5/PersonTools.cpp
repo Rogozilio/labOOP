@@ -16,6 +16,7 @@ T* PersonTools<T>::GetRandomPerson(bool sex, bool isChild)
 		"Helen", "Christine", "Mary", "Roberta","Karen",
 		"Emily","Patricia","Elfreda","Camilla","Sarah" };
 	person->Surname = surname[rand() % 15];
+
 	if (sex)
 	{
 		person->Name = nameMale[rand() % 15];
