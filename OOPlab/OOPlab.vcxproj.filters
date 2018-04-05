@@ -72,6 +72,9 @@
     <ClCompile Include="lab6\PersonList6.cpp">
       <Filter>Source Files\lab6</Filter>
     </ClCompile>
+    <ClCompile Include="lab5\PersonTools.cpp">
+      <Filter>Source Files\lab5</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lab2\lab2.h">

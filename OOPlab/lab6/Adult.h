@@ -4,7 +4,10 @@
 class Adult : public Person5
 {
 public:
-	string WorkPlace;//метсо работы
-	Person5* MarriedOn = NULL;//указатель на персону с кем в браке
-	string GetDesciption(Person5 person1);//данные о взрослом
+	//метсо работы
+	string WorkPlace;
+	//указатель на персону с кем в браке
+	Person5* MarriedOn = NULL;
+	//данные о взрослом
+	string GetDescription();
 };

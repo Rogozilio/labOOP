@@ -2,8 +2,10 @@
 #include "Person5.h"
 #include "PersonList.h"
 
+template <typename T>
 class PersonTools : public Person5
 {
 public:
-	static Person5* GetRandomPerson(bool sex, bool isChild);//указатель на случайную персону
+	//указатель на случайную персону
+	static T* GetRandomPerson(bool sex, bool isChild);
 };

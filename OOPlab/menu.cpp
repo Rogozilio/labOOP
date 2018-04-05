@@ -15,6 +15,7 @@
 #include "lab5/PersonListItem.h"
 #include "lab5/Person5.h"
 #include "lab5/PersonTools.h"
+#include "lab5/PersonTools.cpp"
 #include "lab6/Adult.h"
 #include "lab6/Child.h"
 
@@ -570,9 +571,9 @@ void lab5()
 		{
 			case 1:
 			{
-				Person5* persona = PersonTools::GetRandomPerson(1,1);
+				Person5* persona = new Person5;// = PersonTools<Person5>::GetRandomPerson(1, 1);
 				Person1.Add(persona);
-				cout << persona->GetDesciption(*persona) << endl;
+				cout << persona->GetDescription() << endl;
 				cout << "Ёлемент добавлен успешно" << endl;
 				break;
 			}
@@ -651,19 +652,19 @@ void lab6()
 				cin >> countPerson;
 				while (countPerson != 0)
 				{
-					Person5* person = PersonTools::GetRandomPerson(rand() % 2, rand() % 2);
-					Person1.Add(person);
-					if (person->GetAge() < 18)
+					if (rand() % 2)
 					{
 						cout << endl << "This is a child" << endl;
-						Child child;
-						cout << child.GetDesciption(*person) << endl;
+						Child* child = PersonTools<Child>::GetRandomPerson(rand() % 2, 1);
+						cout << child->GetDescription() << endl;
+						delete child;
 					}
 					else
 					{
 						cout << endl << "This is an adult" << endl;
-						Adult adult;
-						cout << adult.GetDesciption(*person) << endl;
+						Adult* adult = PersonTools<Adult>::GetRandomPerson(rand() % 2, 0);
+						cout << adult->GetDescription() << endl;
+						delete adult;
 					}
 					countPerson--;
 				}

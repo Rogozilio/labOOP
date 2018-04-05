@@ -5,18 +5,29 @@
 class PersonList
 {
 private: 
-	PersonListItem* _head = NULL; //указатель на голову списка
-	int _count; //количество элементов в списке
+	//указатель на голову списка
+	PersonListItem* _head = NULL; 
+	//количество элементов в списке
+	int _count; 
 public:
-	void Add(Person5* person); //добавить человека в список
-	Person5* Find(int index); //найти человека по указанному индексу
-	int IndexOf(Person5* person); //вернуть индекс человека, если он есть в списке
-	void Remove(Person5* person); //удалить человека из списка
-	void RemoveAt(int index); //удалить человека из списка по индексу
-	void Clear(); //очистить список
-	int GetCount(); //получить количество элементов
-	void Show();//вывод списка на экран
-	~PersonList(); //Деструктор класса
+	//добавить человека в список
+	void Add(Person5* person); 
+	//найти человека по указанному индексу
+	Person5* Find(int index); 
+	//вернуть индекс человека, если он есть в списке
+	int IndexOf(Person5* person); 
+	//удалить человека из списка
+	void Remove(Person5* person); 
+	//удалить человека из списка по индексу
+	void RemoveAt(int index); 
+	//очистить список
+	void Clear(); 
+	//получить количество элементов
+	int GetCount(); 
+	//вывод списка на экран
+	void Show();
+	//Деструктор класса
+	~PersonList(); 
 };
 
 void lab5();

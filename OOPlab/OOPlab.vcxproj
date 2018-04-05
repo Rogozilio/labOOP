@@ -157,6 +157,7 @@
     <ClCompile Include="lab4\lab4.cpp" />
     <ClCompile Include="lab4\Stack.cpp" />
     <ClCompile Include="lab5\PersonList.cpp" />
+    <ClCompile Include="lab5\PersonTools.cpp" />
     <ClCompile Include="lab6\PersonList6.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />

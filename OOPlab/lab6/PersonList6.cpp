@@ -5,74 +5,65 @@
 #include "Child.h"
 #include "../lab5/Person5.h"
 #include "../lab5/PersonTools.h"
+#include "../lab5/PersonTools.cpp"
 
 using namespace std;
 
-string Person5::GetDesciption(Person5 person1)
+string Person5::GetDescription()
 {
 	string person = { "" };
-	person = person1.Name + ' ' + person1.Surname + ", " + to_string(person1.Age);
-	if (person1.Sex == Male)
+	person = Name + ' ' + Surname + ", " + to_string(Age) + " years old, ";
+	if (Sex == Male)
 	{
-		person = person + " years old, male. ";
+		person = person + "male. ";
 	}
 	else
 	{
-		person = person + " years old, female. ";
+		person = person + "female. ";
 	}
 	return person;
 }
 
-string Adult::GetDesciption(Person5 persona)
+string Adult::GetDescription()
 {
-	string person = Person5::GetDesciption(persona);
+	string person = Person5::GetDescription();
 	string workPlace[] = { "Lawyer","Actor","Animator", "Barman", "Banker",
 		"Businessman", "Broker", "Web designer", "Driver","Developer",
 		"Cashier", "Composer", "Pilot", "Interpreter", "Programmer" };
 
-	Adult person1;
-	person1.Name = persona.Name;
-	person1.Surname = persona.Surname;
-	person1.Sex = persona.Sex;
-	person1.Age = persona.Age;
-	person1.MarriedOn = PersonTools::GetRandomPerson(rand() % 3, 0);
-	person1.WorkPlace = workPlace[rand() % 15];
+	MarriedOn = PersonTools<Person5>::GetRandomPerson(rand() % 2, 0);
+	WorkPlace = workPlace[rand() % 15];
 
-	if (person1.MarriedOn != NULL)
+	if (MarriedOn != NULL)
 	{
-		person = person + "married on " + person1.MarriedOn->Name + ' ' + person1.MarriedOn->Surname + ", " + person1.WorkPlace;
+		person = person + "married on " + MarriedOn->Name + ' ' + MarriedOn->Surname + ", " + WorkPlace;
 	}
 	else
 	{
-		person = person + "single, " + person1.WorkPlace;
+		person = person + "single, " + WorkPlace;
 	}
 
 	return person;
 }
 
-string Child ::GetDesciption(Person5 persona)
+string Child ::GetDescription()
 {
-	string person = Person5::GetDesciption(persona);
+	string person = Person5::GetDescription();
 
-	Child person1;
-	person1.Name = persona.Name;
-	person1.Surname = persona.Surname;
-	person1.Sex = persona.Sex;
-	person1.Age = persona.Age;
-	person1.Mother = PersonTools::GetRandomPerson(0, 0);
-	person1.Father = PersonTools::GetRandomPerson(1 + rand() % 2, 0);
+	Mother = PersonTools<Person5>::GetRandomPerson(0, 0);
+	Father = PersonTools<Person5>::GetRandomPerson(1 + rand() % 2, 0);
 
-	if (person1.Father != NULL && person1.Mother != NULL)
+	if (Father != NULL && Mother != NULL)
 	{
-		person = person + "parents are " + person1.Mother->Name + ' ' + person1.Mother->Surname + " and " + person1.Father->Name + ' ' + person1.Father->Surname;
+		person = person + "parents are " + Mother->Name + ' ' + Mother->Surname + " and " + Father->Name + ' ' + Father->Surname;
 	}
-	else if (person1.Father != NULL)
+	else if (Father != NULL)
 	{
-		person = person + "father is " + person1.Father->Name + ' ' + person1.Father->Surname;
+		person = person + "father is " + Father->Name + ' ' + Father->Surname;
 	}
-	else if(person1.Mother != NULL)
+	else if(Mother != NULL)
 	{
-		person = person + "mother is " + person1.Mother->Name + ' ' + person1.Mother->Surname;
+		person = person + "mother is " + Mother->Name + ' ' + Mother->Surname;
 	}
 	else
 	{
