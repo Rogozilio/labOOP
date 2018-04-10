@@ -43,6 +43,12 @@
     <Filter Include="Source Files\lab6">
       <UniqueIdentifier>{fbd48f31-4c02-4439-8ae2-ee1cfff14032}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\lab7">
+      <UniqueIdentifier>{17c751ba-a57d-412e-8807-5f248941ee47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\lab7">
+      <UniqueIdentifier>{cf552e5b-9aeb-44cd-b5e5-26c5aa2a3ec7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -74,6 +80,9 @@
     </ClCompile>
     <ClCompile Include="lab5\PersonTools.cpp">
       <Filter>Source Files\lab5</Filter>
+    </ClCompile>
+    <ClCompile Include="lab7\List7.cpp">
+      <Filter>Source Files\lab7</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +136,12 @@
     </ClInclude>
     <ClInclude Include="lab6\Child.h">
       <Filter>Header Files\lab6</Filter>
+    </ClInclude>
+    <ClInclude Include="lab7\List7.h">
+      <Filter>Header Files\lab7</Filter>
+    </ClInclude>
+    <ClInclude Include="lab7\ListItem7.h">
+      <Filter>Header Files\lab7</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

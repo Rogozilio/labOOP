@@ -1,4 +1,6 @@
 ﻿  PersonTools.cpp
-  PersonList6.cpp
+  List7.cpp
+  menu.cpp
+c:\users\чебуратор\source\repos\laboop\ooplab\menu.cpp(29): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
   Создание кода...
   OOPlab.vcxproj -> C:\Users\чебуратор\source\repos\labOOP\x64\Debug\OOPlab.exe

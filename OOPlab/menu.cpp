@@ -18,6 +18,9 @@
 #include "lab5/PersonTools.cpp"
 #include "lab6/Adult.h"
 #include "lab6/Child.h"
+#include "lab7/List7.h"
+#include "lab7/ListItem7.h"
+#include "lab7/List7.cpp"
 
 using namespace std;
 
@@ -571,7 +574,7 @@ void lab5()
 		{
 			case 1:
 			{
-				Person5* persona = new Person5;// = PersonTools<Person5>::GetRandomPerson(1, 1);
+				Person5* persona = PersonTools<Person5>::GetRandomPerson(1, 1);
 				Person1.Add(persona);
 				cout << persona->GetDescription() << endl;
 				cout << "Элемент добавлен успешно" << endl;
@@ -678,6 +681,114 @@ void lab6()
 			default:
 			{
 				cout << "Повторите ввод  ";
+				break;
+			}
+		}
+	}
+}
+
+void lab7()
+{
+	int key;
+	bool isMenu = true;
+	while (isMenu)
+	{
+		cout << "1) Демонстрировать на double" << endl
+			<< "2) Демонстрировать на *Person" << endl
+			<< "3) Демонстрировать на double[5]" << endl
+			<< "4) Демонстрировать на List<double>" << endl
+			<< "0) Выход из программы" << endl;
+		key = CheckSymbol();
+
+		switch (key)
+		{
+			case 1:
+			{
+				double* value = new double;
+				List7<double> Person;
+				*value = 1.11;
+				Person.Add(value);
+				*value = 2.22;
+				Person.Add(value);
+				*value = 3.33;
+				Person.Add(value);
+				*value = 4.44;
+				Person.Add(value);
+				*value = 5.55;
+				Person.Add(value);
+				Person.Show();
+				Person.RemoveAt(2);
+				Person.Show();
+				*value = 6.66;
+				Person.AddIndex(value, 3);
+				Person.Show();
+				delete value;
+				break;
+			}
+			case 2:
+			{
+				List7<Person5> Person;
+				Person.Add(PersonTools<Person5>::GetRandomPerson(rand() % 2,rand() % 2));
+				Person.Add(PersonTools<Person5>::GetRandomPerson(rand() % 2, rand() % 2));
+				Person.Add(PersonTools<Person5>::GetRandomPerson(rand() % 2, rand() % 2));
+				Person.Add(PersonTools<Person5>::GetRandomPerson(rand() % 2, rand() % 2));
+				Person.Add(PersonTools<Person5>::GetRandomPerson(rand() % 2, rand() % 2));
+				Person.ShowPerson();
+				Person.RemoveAt(2);
+				Person.ShowPerson();
+				Person.AddIndex(PersonTools<Person5>::GetRandomPerson(rand() % 2, rand() % 2), 3);
+				Person.ShowPerson();
+				break;
+			}
+			case 3:
+			{
+				/*double* value = new double[5];
+				List7<double[5]> Person;
+				value[0] = 1.11;
+				Person.Add(value[1]);
+				value[0] = 2.22;
+				Person.Add(value[1]);
+				value[0] = 3.33;
+				Person.Add(value[1]);
+				value[0] = 4.44;
+				Person.Add(value[1]);
+				value[0] = 5.55;
+				Person.Add(value[1]);
+				Person.Show();
+				Person.RemoveAt(2);
+				Person.Show();
+				value[0] = 6.66;
+				Person.AddIndex(value[1], 3);
+				Person.Show();
+				delete value;*/
+				break;
+			}
+			case 4:
+			{
+				/*double* value = new double;
+				List7<List7<double>> Person;
+				*value = 1.11;
+				Person.Add(value);
+				*value = 2.22;
+				Person.Add(value);
+				*value = 3.33;
+				Person.Add(value);
+				*value = 4.44;
+				Person.Add(value);
+				*value = 5.55;
+				Person.Add(value);
+				Person.Show();
+				Person.RemoveAt(2);
+				Person.Show();
+				*value = 6.66;
+				Person.AddIndex(value, 3);
+				Person.Show();
+				delete value;*/
+				break;
+			}
+			case 0:
+			{
+				isMenu = false;
 				break;
 			}
 		}

@@ -32,3 +32,4 @@ public:
 
 void lab5();
 void lab6();
+void lab7();
