@@ -1,4 +1,6 @@
 #pragma once
+// TODO: слишком большой файл - неудобно работать.
+// Разделить на отдельные файлы для каждой лабораторной работы.
 #include <iostream>
 #include <string>
 #include <ctime>
@@ -638,6 +640,31 @@ void lab5()
 void lab6()
 {
 	PersonList Person1;
+	//Блок кода, тестирующий полиморфизм
+	{
+		Person5* person;
+		auto adult = new Adult;
+		adult->Age = 30;
+		adult->Name = "adult";
+		adult->Surname = "adult";
+		adult->MarriedOn = PersonTools<Person5>::GetRandomPerson(1, 1);
+		person = adult;
+		// Через указатель на базовый класс вызывается 
+		// реализация метода GetDescription() базового класса, а не дочернего.
+		// Это означает, что полиморфизм не работает
+		cout << person->GetDescription() << endl;
+		auto child = new Child;
+		child->Age = 10;
+		child->Name = "Child";
+		child->Surname = "Child";
+		child->Father = adult->MarriedOn;
+		child->Mother = adult;
+		person = child;
+		// Через указатель на базовый класс вызывается 
+		// реализация метода GetDescription() базового класса, а не дочернего.
+		// Это означает, что полиморфизм не работает
+		cout << person->GetDescription() << endl;
+	}
 	int key;
 	bool isMenu = true;
 	while (isMenu)
@@ -658,6 +685,8 @@ void lab6()
 					if (rand() % 2)
 					{
 						cout << endl << "This is a child" << endl;
+						// TODO: это не демонстрация полиморфизма.
+						// Полиморфизм это работа с объектами через общий интерфейс (базовый класс)
 						Child* child = PersonTools<Child>::GetRandomPerson(rand() % 2, 1);
 						cout << child->GetDescription() << endl;
 						delete child;
@@ -665,6 +694,8 @@ void lab6()
 					else
 					{
 						cout << endl << "This is an adult" << endl;
+						// TODO: это не демонстрация полиморфизма.
+						// Полиморфизм это работа с объектами через общий интерфейс (базовый класс)
 						Adult* adult = PersonTools<Adult>::GetRandomPerson(rand() % 2, 0);
 						cout << adult->GetDescription() << endl;
 						delete adult;

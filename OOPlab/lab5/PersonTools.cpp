@@ -3,6 +3,9 @@
 #include "PersonTools.h"
 
 template <typename T>
+//TODO: Для передачи пола уже есть перечисление Sex. Зачем bool?
+//TODO: Из-за того, что здесь неправильно использованы шаблоны, возникает костыль с дополнительной переменной isChild.
+// В итоге я могу вызвать функцию PersonTools<Adult>(true, true), и у меня сгенерируется взрослый с возрастом до 18 лет. Косяк? Косяк
 T* PersonTools<T>::GetRandomPerson(bool sex, bool isChild)
 {
 	T* person = new T;

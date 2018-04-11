@@ -25,6 +25,7 @@ void List7<T>::Add(T* person)
 }
 
 template <typename T>
+//TODO: Нарушает общепринятое именование. Add - добавление в конец списка. Insert - вставка по индексу. Переименовать
 void List7<T>::AddIndex(T* person, int index)
 {
 	int countIndex = index;
@@ -146,6 +147,7 @@ void List7<T>::Show()
 	cout << "----------------------------------" << endl;
 }
 
+//TODO: Этой функции быть не должно. Вывод списка персон на экран должен работать через единый метод Show()
 template <typename T>
 void List7<T>::ShowPerson()
 {
