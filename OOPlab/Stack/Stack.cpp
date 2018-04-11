@@ -5,9 +5,8 @@ using namespace std;
 
 void Push(Stack*& stack, int value)
 {
-
 		Stack *newStack = new Stack;
-		newStack->Value = value;
+		newStack->value = value;
 		newStack->Next = stack;
 		stack = newStack;
 }
@@ -23,7 +22,7 @@ int Pop(Stack*& stack)
 		//исправлено
 		return NULL;
 	}
-	int temp = stack->Value;
+	int temp = stack->value;
 	Stack* newStack = stack;
 	//TODO: утечка памяти
 	//исправлено
@@ -43,7 +42,7 @@ int Top(Stack*& stack)
 		//исправлено
 		return NULL;
 	}
-	return stack->Value;
+	return stack->value;
 }
 
 int Size(Stack *& stack)

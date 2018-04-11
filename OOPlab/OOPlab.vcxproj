@@ -152,37 +152,31 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CheckSymbol.cpp" />
-    <ClCompile Include="lab2\lab2.cpp" />
-    <ClCompile Include="lab3\lab3.cpp" />
-    <ClCompile Include="lab4\lab4.cpp" />
-    <ClCompile Include="lab4\Stack.cpp" />
-    <ClCompile Include="lab5\PersonList.cpp" />
-    <ClCompile Include="lab5\PersonTools.cpp" />
-    <ClCompile Include="lab6\PersonList6.cpp" />
-    <ClCompile Include="lab7\List7.cpp" />
+    <ClCompile Include="List\TemplateList.cpp" />
+    <ClCompile Include="List\PersonList.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="Person\Adult.cpp" />
+    <ClCompile Include="Person\Child.cpp" />
+    <ClCompile Include="Person\Person.cpp" />
+    <ClCompile Include="Person\PersonTools.cpp" />
+    <ClCompile Include="Stack\Stack.cpp" />
+    <ClCompile Include="String\String.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="lab2\lab2.h" />
-    <ClInclude Include="lab3\lab3.h" />
-    <ClInclude Include="lab3\MenuEnum.h" />
-    <ClInclude Include="lab3\Person.h" />
-    <ClInclude Include="lab3\Sex.h" />
-    <ClInclude Include="lab4\lab4.h" />
-    <ClInclude Include="lab4\person4.h" />
-    <ClInclude Include="lab4\PersonListItem4.h" />
-    <ClInclude Include="lab4\Stack.h" />
-    <ClInclude Include="lab4\StackItem.h" />
-    <ClInclude Include="lab4\PersonList4.h" />
-    <ClInclude Include="lab5\Person5.h" />
-    <ClInclude Include="lab5\PersonList.h" />
-    <ClInclude Include="lab5\PersonListItem.h" />
-    <ClInclude Include="lab5\PersonTools.h" />
-    <ClInclude Include="lab6\Adult.h" />
-    <ClInclude Include="lab6\Child.h" />
-    <ClInclude Include="lab7\List7.h" />
-    <ClInclude Include="lab7\ListItem7.h" />
+    <ClInclude Include="List\TemplateList.h" />
+    <ClInclude Include="List\templateListItem.h" />
+    <ClInclude Include="List\PersonList.h" />
+    <ClInclude Include="List\PersonListItem.h" />
+    <ClInclude Include="Person\Adult.h" />
+    <ClInclude Include="Person\Child.h" />
+    <ClInclude Include="Person\Person.h" />
+    <ClInclude Include="Person\PersonTools.h" />
+    <ClInclude Include="Person\Sex.h" />
+    <ClInclude Include="Stack\Stack.h" />
+    <ClInclude Include="Stack\StackItem.h" />
+    <ClInclude Include="String\String.h" />
+    <ClInclude Include="String\MenuEnum.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

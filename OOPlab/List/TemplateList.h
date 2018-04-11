@@ -1,21 +1,23 @@
 #pragma once
 //TODO: переименовать этот и остальные файлы БЕЗ цифры лабораторной работы
-#include "ListItem7.h"
+//исправлено
+#include "TemplateListItem.h"
 
 template <class T>
 //TODO: переименовать без 7
-class List7
+//исправлено
+class TemplateList
 {
 private:
 	//указатель на голову списка
-	ListItem7<T>* _head = NULL;
+	TemplateListItem<T>* _head = NULL;
 	//количество элементов в списке
 	int _count;
 public:
 	//добавить человека в список
-	void Add(T* person);
+	void Add(T* value);
 	//добавить человека в список
-	void AddIndex(T* person, int index);
+	void Insert(T* value, int index);
 	//удалить человека из списка по индексу
 	void RemoveAt(int index);
 	//очистить список
@@ -26,5 +28,5 @@ public:
 	//TODO: В шаблонном классе не должно быть функций, работающих с конкретным типом данных. Всё должно работать через функцию Show()
 	void ShowPerson();
 	//Деструктор класса
-	~List7();
+	~TemplateList();
 };

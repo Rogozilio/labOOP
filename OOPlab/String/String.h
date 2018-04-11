@@ -1,5 +1,5 @@
 #pragma once
-#include "Person.h"
+#include "../Person/Person.h"
 
 void lab3();
 //Вывод на экран размера строки

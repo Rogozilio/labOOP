@@ -26,7 +26,7 @@ int PersonList::GetCount()
 	}
 }
 
-void PersonList::Add(Person5* person)
+void PersonList::Add(Person* person)
 {
 	PersonListItem* temp = new PersonListItem;
 	temp->person = *person;
@@ -46,7 +46,7 @@ void PersonList::Add(Person5* person)
 	}
 }
 
-Person5* PersonList::Find(int index)
+Person* PersonList::Find(int index)
 {
 	if (index >= 0 || index < GetCount())
 	{
@@ -59,7 +59,7 @@ Person5* PersonList::Find(int index)
 	}
 }
 
-int PersonList::IndexOf(Person5* person)
+int PersonList::IndexOf(Person* person)
 {
 	PersonListItem* temp = _head;
 	for (int i = 0; i < GetCount(); i++)
@@ -73,7 +73,7 @@ int PersonList::IndexOf(Person5* person)
 	return -1;
 }
 
-void PersonList::Remove(Person5* person)
+void PersonList::Remove(Person* person)
 {
 	PersonListItem* temp = _head;
 	for (int i = 0; i < GetCount(); i++)

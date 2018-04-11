@@ -1,12 +1,13 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include "..\lab3\Sex.h"
+#include "Sex.h"
 
 using namespace std;
 
 //TODO: переименовать просто в Person
-class Person5
+//исправлено
+class Person
 {
 //TODO: все поля должны быть под модификатором private! Инкапсуляция
 //TODO: Сделать сеттеры и геттеры для фамилии/имени с проверками правильности имён
@@ -21,7 +22,7 @@ public:
 	Sex Sex;
 	//данные о персоне
 	// TODO: Добавить virtual, проверить, работает ли полиморфизм
-	string GetDescription();
+	virtual string GetDescription();
 	//получить возраст персоны
 	int GetAge();
 	//задать возраст персоне

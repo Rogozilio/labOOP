@@ -4,6 +4,6 @@
 //Cтек
 struct Stack
 {
-	int Value;
+	int value;
 	struct Stack *Next;
 };

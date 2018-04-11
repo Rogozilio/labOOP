@@ -3,14 +3,17 @@
 
 template <class T>
 //TODO: Переименовать без 7
-class ListItem7
+//исправлено
+class TemplateListItem
 {
 public:
 	//элемент списка
 	//TODO: Переименовать. Список теперь может хранить не только персон, но и любые другие данные
 	//TODO: Переименовать по RSDN
-	T person;
+	//исправлено
+	T value;
 	//указатель на следующий элемент списка
 	//TODO: Переименовать по RSDN
-	ListItem7* next = NULL;
+	//исправлено
+	TemplateListItem* nextValue = NULL;
 };

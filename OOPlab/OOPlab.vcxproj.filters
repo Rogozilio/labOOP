@@ -13,41 +13,29 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\lab2">
-      <UniqueIdentifier>{4f24cfae-ed04-48ec-909a-397c867722bf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\lab3">
+    <Filter Include="Header Files\String">
       <UniqueIdentifier>{10508fa4-d9d7-481a-8980-d764bf749031}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\lab4">
-      <UniqueIdentifier>{6c3809c4-4339-42d3-abf4-3b06d8a1128b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\lab2">
-      <UniqueIdentifier>{8d6dd5e6-3a16-4709-ab08-3f11b3afb6bc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\lab3">
+    <Filter Include="Source Files\String">
       <UniqueIdentifier>{45906183-3b5c-4e8e-a57c-f33e5f22d6ec}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\lab4">
-      <UniqueIdentifier>{7754131b-4423-4824-a6eb-e6cc0ccde2c4}</UniqueIdentifier>
+    <Filter Include="Header Files\Person">
+      <UniqueIdentifier>{892368c9-a327-46d6-86d8-6478e9cc978c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\lab5">
-      <UniqueIdentifier>{4d8bc480-37d7-4691-9fb0-5f8fbc3d0329}</UniqueIdentifier>
+    <Filter Include="Header Files\Stack">
+      <UniqueIdentifier>{b529e7be-d72b-4a7f-b850-9024b4d0fa50}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\lab5">
-      <UniqueIdentifier>{4fc15f2f-dcf8-4142-9517-e661d7c13229}</UniqueIdentifier>
+    <Filter Include="Header Files\List">
+      <UniqueIdentifier>{fdcc6c91-b4b9-4241-8817-75f3c3e4205a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\lab6">
-      <UniqueIdentifier>{58258a1c-c9f9-4221-a87c-125987c2adfe}</UniqueIdentifier>
+    <Filter Include="Source Files\List">
+      <UniqueIdentifier>{381c281d-1091-4bd7-8d20-2058f1af527f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\lab6">
-      <UniqueIdentifier>{fbd48f31-4c02-4439-8ae2-ee1cfff14032}</UniqueIdentifier>
+    <Filter Include="Source Files\Stack">
+      <UniqueIdentifier>{af0be881-db21-4cc4-8398-faf58e93fc97}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\lab7">
-      <UniqueIdentifier>{17c751ba-a57d-412e-8807-5f248941ee47}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\lab7">
-      <UniqueIdentifier>{cf552e5b-9aeb-44cd-b5e5-26c5aa2a3ec7}</UniqueIdentifier>
+    <Filter Include="Source Files\Person">
+      <UniqueIdentifier>{0a390abc-eb2b-4b67-a0e9-11aa38da5d65}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -60,88 +48,70 @@
     <ClCompile Include="CheckSymbol.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="lab2\lab2.cpp">
-      <Filter>Source Files\lab2</Filter>
+    <ClCompile Include="List\PersonList.cpp">
+      <Filter>Source Files\List</Filter>
     </ClCompile>
-    <ClCompile Include="lab3\lab3.cpp">
-      <Filter>Source Files\lab3</Filter>
+    <ClCompile Include="Person\PersonTools.cpp">
+      <Filter>Source Files\Person</Filter>
     </ClCompile>
-    <ClCompile Include="lab4\lab4.cpp">
-      <Filter>Source Files\lab4</Filter>
+    <ClCompile Include="Stack\Stack.cpp">
+      <Filter>Source Files\Stack</Filter>
     </ClCompile>
-    <ClCompile Include="lab4\Stack.cpp">
-      <Filter>Source Files\lab4</Filter>
+    <ClCompile Include="Person\Person.cpp">
+      <Filter>Source Files\Person</Filter>
     </ClCompile>
-    <ClCompile Include="lab5\PersonList.cpp">
-      <Filter>Source Files\lab5</Filter>
+    <ClCompile Include="Person\Adult.cpp">
+      <Filter>Source Files\Person</Filter>
     </ClCompile>
-    <ClCompile Include="lab6\PersonList6.cpp">
-      <Filter>Source Files\lab6</Filter>
+    <ClCompile Include="Person\Child.cpp">
+      <Filter>Source Files\Person</Filter>
     </ClCompile>
-    <ClCompile Include="lab5\PersonTools.cpp">
-      <Filter>Source Files\lab5</Filter>
+    <ClCompile Include="List\TemplateList.cpp">
+      <Filter>Source Files\List</Filter>
     </ClCompile>
-    <ClCompile Include="lab7\List7.cpp">
-      <Filter>Source Files\lab7</Filter>
+    <ClCompile Include="String\String.cpp">
+      <Filter>Source Files\String</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="lab2\lab2.h">
-      <Filter>Header Files\lab2</Filter>
+    <ClInclude Include="List\PersonList.h">
+      <Filter>Header Files\List</Filter>
     </ClInclude>
-    <ClInclude Include="lab3\lab3.h">
-      <Filter>Header Files\lab3</Filter>
+    <ClInclude Include="List\PersonListItem.h">
+      <Filter>Header Files\List</Filter>
     </ClInclude>
-    <ClInclude Include="lab3\Person.h">
-      <Filter>Header Files\lab3</Filter>
+    <ClInclude Include="Person\Adult.h">
+      <Filter>Header Files\Person</Filter>
     </ClInclude>
-    <ClInclude Include="lab3\MenuEnum.h">
-      <Filter>Header Files\lab3</Filter>
+    <ClInclude Include="Person\Child.h">
+      <Filter>Header Files\Person</Filter>
     </ClInclude>
-    <ClInclude Include="lab3\Sex.h">
-      <Filter>Header Files\lab3</Filter>
+    <ClInclude Include="Person\Person.h">
+      <Filter>Header Files\Person</Filter>
     </ClInclude>
-    <ClInclude Include="lab4\lab4.h">
-      <Filter>Header Files\lab4</Filter>
+    <ClInclude Include="Person\Sex.h">
+      <Filter>Header Files\Person</Filter>
     </ClInclude>
-    <ClInclude Include="lab4\person4.h">
-      <Filter>Header Files\lab4</Filter>
+    <ClInclude Include="Person\PersonTools.h">
+      <Filter>Header Files\Person</Filter>
     </ClInclude>
-    <ClInclude Include="lab4\Stack.h">
-      <Filter>Header Files\lab4</Filter>
+    <ClInclude Include="Stack\Stack.h">
+      <Filter>Header Files\Stack</Filter>
     </ClInclude>
-    <ClInclude Include="lab4\StackItem.h">
-      <Filter>Header Files\lab4</Filter>
+    <ClInclude Include="Stack\StackItem.h">
+      <Filter>Header Files\Stack</Filter>
     </ClInclude>
-    <ClInclude Include="lab5\Person5.h">
-      <Filter>Header Files\lab5</Filter>
+    <ClInclude Include="String\MenuEnum.h">
+      <Filter>Header Files\String</Filter>
     </ClInclude>
-    <ClInclude Include="lab5\PersonList.h">
-      <Filter>Header Files\lab5</Filter>
+    <ClInclude Include="List\TemplateList.h">
+      <Filter>Header Files\List</Filter>
     </ClInclude>
-    <ClInclude Include="lab5\PersonListItem.h">
-      <Filter>Header Files\lab5</Filter>
+    <ClInclude Include="List\templateListItem.h">
+      <Filter>Header Files\List</Filter>
     </ClInclude>
-    <ClInclude Include="lab4\PersonList4.h">
-      <Filter>Header Files\lab4</Filter>
-    </ClInclude>
-    <ClInclude Include="lab4\PersonListItem4.h">
-      <Filter>Header Files\lab4</Filter>
-    </ClInclude>
-    <ClInclude Include="lab5\PersonTools.h">
-      <Filter>Header Files\lab5</Filter>
-    </ClInclude>
-    <ClInclude Include="lab6\Adult.h">
-      <Filter>Header Files\lab6</Filter>
-    </ClInclude>
-    <ClInclude Include="lab6\Child.h">
-      <Filter>Header Files\lab6</Filter>
-    </ClInclude>
-    <ClInclude Include="lab7\List7.h">
-      <Filter>Header Files\lab7</Filter>
-    </ClInclude>
-    <ClInclude Include="lab7\ListItem7.h">
-      <Filter>Header Files\lab7</Filter>
+    <ClInclude Include="String\String.h">
+      <Filter>Header Files\String</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

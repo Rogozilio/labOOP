@@ -1,5 +1,5 @@
 #pragma once
-#include "Person5.h"
+#include "../Person/Person.h"
 #include "PersonListItem.h"
 
 class PersonList
@@ -11,13 +11,13 @@ private:
 	int _count; 
 public:
 	//добавить человека в список
-	void Add(Person5* person); 
+	void Add(Person* person); 
 	//найти человека по указанному индексу
-	Person5* Find(int index); 
+	Person* Find(int index); 
 	//вернуть индекс человека, если он есть в списке
-	int IndexOf(Person5* person); 
+	int IndexOf(Person* person); 
 	//удалить человека из списка
-	void Remove(Person5* person); 
+	void Remove(Person* person); 
 	//удалить человека из списка по индексу
 	void RemoveAt(int index); 
 	//очистить список
@@ -30,6 +30,7 @@ public:
 	~PersonList(); 
 };
 
+void lab4();
 void lab5();
 void lab6();
 void lab7();

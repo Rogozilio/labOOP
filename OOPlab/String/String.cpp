@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
-#include "Person.h"
-#include "lab3.h"
+#include "../Person/Person.h"
+#include "String.h"
 
 using namespace std;
 

@@ -6,257 +6,20 @@
 #include <ctime>
 #include <cstdio>
 #include <Windows.h>
-#include "lab2/lab2.h"
-#include "lab3/lab3.h"
-#include "lab3/MenuEnum.h"
-#include "lab3/Person.h"
-#include "lab4/lab4.h"
-#include "lab4/PersonList4.h"
-#include "lab4/Stack.h"
-#include "lab5/PersonList.h"
-#include "lab5/PersonListItem.h"
-#include "lab5/Person5.h"
-#include "lab5/PersonTools.h"
-#include "lab5/PersonTools.cpp"
-#include "lab6/Adult.h"
-#include "lab6/Child.h"
-#include "lab7/List7.h"
-#include "lab7/ListItem7.h"
-#include "lab7/List7.cpp"
+#include "String/String.h"
+#include "String/MenuEnum.h"
+#include "Stack/Stack.h"
+#include "List/PersonList.h"
+#include "List/PersonListItem.h"
+#include "Person/Person.h"
+#include "Person/PersonTools.h"
+#include "Person/Adult.h"
+#include "Person/Child.h"
+#include "List/TemplateList.h"
+#include "List/TemplateListItem.h"
+#include "List/TemplateList.cpp"
 
 using namespace std;
-
-void lab2()
-{
-	srand(time(NULL));
-	int key;
-	bool isMenu = true;
-	while (isMenu)
-	{
-
-		cout << "1) Hello World " << endl
-			<< "2) Калькулятор " << endl
-			<< "3) Корень квадратного уравнения (указатели) " << endl
-			<< "4) Корень квадратного уравнения (ссылки)" << endl
-			<< "5) Перегрузка функций" << endl
-			<< "6) Глобальные переменные" << endl
-			<< "7) Возведение числа в степень" << endl
-			<< "8) Угадай целое число" << endl
-			<< "9) Сортировка массива" << endl
-			<< "10) Перемножение матриц" << endl
-			<< "0) Выход из программы" << endl;
-		key = CheckSymbol();
-
-		switch (key)
-		{
-			case 1:
-			{
-				PrintHelloWorld();
-				break;
-			}
-			case 2:
-			{
-				int value1;
-				int value2;
-				char operationKey;
-
-				cout << "Введите первый операнд: ";
-				cin >> value1;
-
-				cout << "Введите второй операнд: ";
-				cin >> value2;
-
-				do 
-				{
-					cout << "Введите оператор: ";
-					cin >> operationKey;
-				} while ((operationKey != '+') && (operationKey != '-') && 
-					(operationKey != '*') && (operationKey != '/') && 
-					(operationKey != '%'));
-				cout << MakeCalculation(value1, value2, operationKey) << endl;
-				break;
-			}
-			case 3:
-			{
-				double x1;
-				double x2;
-				double *x1Pointer = &x1;
-				double *x2Pointer = &x2;
-
-				cout << "Аргументы квадратного уравнения: а = 1, b = 3, c = 2 " << endl;
-				cout << "Количество корней квадратного уравнения = " << GetRootsPointer(1, 3, 2, x1Pointer, x2Pointer) << endl << endl;
-
-				cout << "Аргументы квадратного уравнения: а = 1, b = 4, c = 0 " << endl;
-				cout << "Количество корней квадратного уравнения = " << GetRootsPointer(1, 4, 0, x1Pointer, x2Pointer) << endl << endl;
-
-				cout << "Аргументы квадратного уравнения: а = 0, b = 1, c = 2 " << endl;
-				cout << "Количество корней квадратного уравнения = " << GetRootsPointer(0, 1, 2, x1Pointer, x2Pointer) << endl << endl;
-
-				cout << "Аргументы квадратного уравнения: а = 0, b = 0, c = 3 " << endl;
-				cout << "Количество корней квадратного уравнения = " << GetRootsPointer(0, 0, 3, x1Pointer, x2Pointer) << endl << endl;
-
-				cout << "Аргументы квадратного уравнения: а = 0, b = 1, c = 0 " << endl;
-				cout << "Количество корней квадратного уравнения = " << GetRootsPointer(0, 1, 0, x1Pointer, x2Pointer) << endl << endl;
-
-				cout << "Аргументы квадратного уравнения: а = 4, b = 1, c = 4 " << endl;
-				cout << "Количество корней квадратного уравнения = " << GetRootsPointer(4, 1, 4, x1Pointer, x2Pointer) << endl << endl;
-				break;
-			}
-			case 4:
-			{
-				double x1;
-				double x2;
-
-				cout << "Аргументы квадратного уравнения: а = 1, b = 3, c = 2 " << endl;
-				cout << "Количество корней квадратного уравнения = " << GetRootsLink(1, 3, 2, x1, x2) << endl << endl;
-
-				cout << "Аргументы квадратного уравнения: а = 1, b = 4, c = 0 " << endl;
-				cout << "Количество корней квадратного уравнения = " << GetRootsLink(1, 4, 0, x1, x2) << endl << endl;
-
-				cout << "Аргументы квадратного уравнения: а = 0, b = 1, c = 2 " << endl;
-				cout << "Количество корней квадратного уравнения = " << GetRootsLink(0, 1, 2, x1, x2) << endl << endl;
-
-				cout << "Аргументы квадратного уравнения: а = 0, b = 0, c = 3 " << endl;
-				cout << "Количество корней квадратного уравнения = " << GetRootsLink(0, 0, 3, x1, x2) << endl << endl;
-
-				cout << "Аргументы квадратного уравнения: а = 0, b = 1, c = 0 " << endl;
-				cout << "Количество корней квадратного уравнения = " << GetRootsLink(0, 1, 0, x1, x2) << endl << endl;
-
-				cout << "Аргументы квадратного уравнения: а = 4, b = 1, c = 4 " << endl;
-				cout << "Количество корней квадратного уравнения = " << GetRootsLink(4, 1, 4, x1, x2) << endl << endl;
-				break;
-			}
-			case 5:
-			{
-				int a = 1;
-				int b = 2;
-				SummNumbers(a, b);
-				double x = 3.0;
-				double y = 4.0;
-				SummNumbers(x, y);
-				SummNumbers(a, y);
-				float m = 5.0;
-				float n = 6.0;
-				SummNumbers(m, n);
-				break;
-			}
-			case 6:
-			{
-				cout << "Global Variable: " << globalVariable << endl;
-				GlobalPlusTwo();
-				cout << "Global Variable: " << globalVariable << endl;
-				GlobalMultiplyThree();
-				cout << "Global Variable: " << globalVariable << endl;
-				GlobalEqualsOne();
-				cout << "Global Variable: " << globalVariable << endl;
-				globalVariable = 5;
-				cout << "Global Variable: " << globalVariable << endl;
-				break;
-			}
-			case 7:
-			{
-				int base;
-				int power;
-				cout << "Введите целое число: ";
-				cin >> base;
-				cout << "Введите степень в которую хотите возвести данное число: ";
-				cin >> power;
-				cout << "Результат = " << GetPower(base, power) << endl;
-			}
-			case 8:
-			{
-				int guessNumber = rand() % 10; // генерация угадываемого числа
-				int enteredNumber = -1; // вводимое пользователем число
-				int shots = 3; // количество попыток
-				cout << "Компьютер загадал число от 0 до 10! ";
-				GuessRandomNumber(guessNumber, enteredNumber, shots);
-			}
-			case 9:
-			{
-				const int arraySize = 10;
-				int array[arraySize];
-
-				for (int i = 0; i < arraySize; i++)				{					array[i] = rand() % 20;				}
-
-				cout << "Первый способ сортировки: " << endl;
-				ArraySorting1(array);
-				cout << "Второй способ сортировки: " << endl;
-				ArraySorting2(array, arraySize);
-				cout << "Третий способ сортировки: " << endl;
-				ArraySorting3(array, arraySize);
-			}
-			case 10:
-			{
-				int matrSize1;
-				int matrSize2;
-				int matrSize3;
-
-				cout << "Введите длину первой матрицы: ";
-				cin >> matrSize1;
-				cout << "Введите ширину первой матрицы и длину второй матрицы: ";
-				cin >> matrSize2;
-				cout << "Введите ширину второй матрицы: ";
-				cin >> matrSize3;
-
-				int **matr1 = new int *[matrSize1];
-				int **matr2 = new int *[matrSize2];
-
-				for (int i = 0; i < matrSize1; i++)
-				{
-					matr1[i] = new int[matrSize2];
-				}
-				for (int i = 0; i < matrSize2; i++)
-				{
-					matr2[i] = new int[matrSize3];
-				}
-
-				cout << "Вывод первой матрицы: " << endl;
-				for (int i = 0; i < matrSize1; i++)
-				{
-					for (int j = 0; j < matrSize2; j++)
-					{
-						matr1[i][j] = rand() % 10;
-						cout << matr1[i][j] << ' ';
-					}
-					cout << endl;
-				}
-				cout << "Вывод второй матрицы: " << endl;
-				for (int i = 0; i < matrSize2; i++)
-				{
-					for (int j = 0; j < matrSize3; j++)
-					{
-						matr2[i][j] = rand() % 10;
-						cout << matr2[i][j] << ' ';
-					}
-					cout << endl;
-				}
-
-				MultiplyMatrices(matr1, matr2, matrSize1, matrSize2, matrSize3);
-
-				for (int i = 0; i < matrSize1; i++)
-				{
-					delete matr1[i];
-				}
-				for (int i = 0; i < matrSize2; i++)
-				{
-					delete matr2[i];
-				}
-				delete [] matr1;
-				delete [] matr2;
-			}
-			case 0:
-			{
-				isMenu = false;
-				break;
-			}
-			default:
-			{
-				cout << "Повторите ввод  ";
-				break;
-			}
-		}
-	}
-}
 
 void lab3()
 {
@@ -422,7 +185,7 @@ void lab4()
 {
 	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
 	Stack* stack = NULL;
-	PersonList4* person = new PersonList4;
+	PersonList Person1;
 	int key;
 	bool isMenu = true;
 	while (isMenu)
@@ -448,23 +211,22 @@ void lab4()
 		{
 			case 1:
 			{
-				AddPerson(person, MakeRandomPerson());
+				Person* persona = PersonTools::GetRandomPerson(Male);
+				Person1.Add(persona);
 				cout << endl << "Элемент добавлен " << endl << endl;
 				break;
 			}
 			case 2:
 			{
-				ShowList(person->Head);
+				Person1.Show();
 				break;
 			}
 			case 3:
 			{
 				int index = 0;
-				PersonLab4* newPerson = new PersonLab4;
 				cout << "Введите индекс: ";
 				cin >> index;
-				newPerson = Get(index, person);
-				cout << endl << newPerson << endl;
+				cout << Person1.Find(index) << endl;
 				break;
 			}
 			case 4:
@@ -472,22 +234,23 @@ void lab4()
 				int index = 0;
 				cout << "Введите индекс: ";
 				cin >> index;
-				RemovePerson(index, person);
+				Person1.RemoveAt(index);
+				cout << "Элемент удален" << endl;
 				break;
 			}
 			case 5:
 			{
-				int index = 0;
+				/*int index = 0;
 				PersonListItem4* newPerson = new PersonListItem4;
 				newPerson->Person = MakeRandomPerson();
 				cout << "Введите индекс: ";
 				cin >> index;
-				InsertPerson(newPerson->Person, index, person);
+				InsertPerson(newPerson->Person, index, person);*/
 				break;
 			}
 			case 6:
 			{
-				Clear(person);
+				Person1.Clear();
 				cout << endl << "Очистка завершена " << endl << endl;
 				break;
 			}
@@ -576,7 +339,7 @@ void lab5()
 		{
 			case 1:
 			{
-				Person5* persona = PersonTools<Person5>::GetRandomPerson(1, 1);
+				Person* persona = PersonTools::GetRandomPerson(Male);
 				Person1.Add(persona);
 				cout << persona->GetDescription() << endl;
 				cout << "Элемент добавлен успешно" << endl;
@@ -642,12 +405,12 @@ void lab6()
 	PersonList Person1;
 	//Блок кода, тестирующий полиморфизм
 	{
-		Person5* person;
+		Person* person;
 		auto adult = new Adult;
 		adult->Age = 30;
 		adult->Name = "adult";
 		adult->Surname = "adult";
-		adult->MarriedOn = PersonTools<Person5>::GetRandomPerson(1, 1);
+		adult->MarriedOn = PersonTools::GetRandomPerson(Male);
 		person = adult;
 		// Через указатель на базовый класс вызывается 
 		// реализация метода GetDescription() базового класса, а не дочернего.
@@ -687,7 +450,7 @@ void lab6()
 						cout << endl << "This is a child" << endl;
 						// TODO: это не демонстрация полиморфизма.
 						// Полиморфизм это работа с объектами через общий интерфейс (базовый класс)
-						Child* child = PersonTools<Child>::GetRandomPerson(rand() % 2, 1);
+						Child* child = PersonTools::GetRandomChild(Male);
 						cout << child->GetDescription() << endl;
 						delete child;
 					}
@@ -696,7 +459,7 @@ void lab6()
 						cout << endl << "This is an adult" << endl;
 						// TODO: это не демонстрация полиморфизма.
 						// Полиморфизм это работа с объектами через общий интерфейс (базовый класс)
-						Adult* adult = PersonTools<Adult>::GetRandomPerson(rand() % 2, 0);
+						Adult* adult = PersonTools::GetRandomAdult(Male);
 						cout << adult->GetDescription() << endl;
 						delete adult;
 					}
@@ -736,7 +499,7 @@ void lab7()
 			case 1:
 			{
 				double* value = new double;
-				List7<double> Person;
+				TemplateList<double> Person;
 				*value = 1.11;
 				Person.Add(value);
 				*value = 2.22;
@@ -751,30 +514,30 @@ void lab7()
 				Person.RemoveAt(2);
 				Person.Show();
 				*value = 6.66;
-				Person.AddIndex(value, 3);
+				Person.Insert(value, 3);
 				Person.Show();
 				delete value;
 				break;
 			}
 			case 2:
 			{
-				List7<Person5> Person;
-				Person.Add(PersonTools<Person5>::GetRandomPerson(rand() % 2,rand() % 2));
-				Person.Add(PersonTools<Person5>::GetRandomPerson(rand() % 2, rand() % 2));
-				Person.Add(PersonTools<Person5>::GetRandomPerson(rand() % 2, rand() % 2));
-				Person.Add(PersonTools<Person5>::GetRandomPerson(rand() % 2, rand() % 2));
-				Person.Add(PersonTools<Person5>::GetRandomPerson(rand() % 2, rand() % 2));
+				TemplateList<Person> Person;
+				Person.Add(PersonTools::GetRandomPerson(Male));
+				Person.Add(PersonTools::GetRandomPerson(Female));
+				Person.Add(PersonTools::GetRandomPerson(Male));
+				Person.Add(PersonTools::GetRandomPerson(Female));
+				Person.Add(PersonTools::GetRandomPerson(Male));
 				Person.ShowPerson();
 				Person.RemoveAt(2);
 				Person.ShowPerson();
-				Person.AddIndex(PersonTools<Person5>::GetRandomPerson(rand() % 2, rand() % 2), 3);
+				Person.Insert(PersonTools::GetRandomPerson(Male), 3);
 				Person.ShowPerson();
 				break;
 			}
 			case 3:
 			{
 				/*double* value = new double[5];
-				List7<double[5]> Person;
+				TemplateList<double[5]> Person;
 				value[0] = 1.11;
 				Person.Add(value[1]);
 				value[0] = 2.22;
@@ -789,7 +552,7 @@ void lab7()
 				Person.RemoveAt(2);
 				Person.Show();
 				value[0] = 6.66;
-				Person.AddIndex(value[1], 3);
+				Person.Insert(value[1], 3);
 				Person.Show();
 				delete value;*/
 				break;
@@ -797,7 +560,7 @@ void lab7()
 			case 4:
 			{
 				/*double* value = new double;
-				List7<List7<double>> Person;
+				TemplateList<TemplateList<double>> Person;
 				*value = 1.11;
 				Person.Add(value);
 				*value = 2.22;
@@ -812,7 +575,7 @@ void lab7()
 				Person.RemoveAt(2);
 				Person.Show();
 				*value = 6.66;
-				Person.AddIndex(value, 3);
+				Person.Insert(value, 3);
 				Person.Show();
 				delete value;*/
 				break;

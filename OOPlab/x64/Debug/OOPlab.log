@@ -1,3 +1,2 @@
 ﻿  menu.cpp
-c:\users\aleksandr\source\repos\2018_gpo_rogozin_cpp\ooplab\menu.cpp(29): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-  OOPlab.vcxproj -> C:\Users\aleksandr\Source\Repos\2018_GPO_Rogozin_CPP\x64\Debug\OOPlab.exe
+  OOPlab.vcxproj -> C:\Users\чебуратор\source\repos\labOOP\x64\Debug\OOPlab.exe

@@ -1,15 +1,16 @@
 #pragma once
-#include "..\lab5\Person5.h"
+#include "Person.h"
 
-class Child : public Person5
+class Child : public Person
 {
 public:
 	//название школы
 	string School;
 	//указатель на персону Mother
-	Person5* Mother = NULL;
+	Person* Mother = NULL;
 	//указатель на персону Father
-	Person5* Father = NULL;
+	Person* Father = NULL;
 	//данные о ребенке
 	string GetDescription();
+	Child();
 };

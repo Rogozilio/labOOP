@@ -1,13 +1,14 @@
 #pragma once
-#include "..\lab5\Person5.h"
+#include "Person.h"
 
-class Adult : public Person5
+class Adult : public Person
 {
 public:
 	//метсо работы
 	string WorkPlace;
 	//указатель на персону с кем в браке
-	Person5* MarriedOn = NULL;
+	Person* MarriedOn = NULL;
 	//данные о взрослом
 	string GetDescription();
+	Adult();
 };
