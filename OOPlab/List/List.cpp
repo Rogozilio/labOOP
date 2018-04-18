@@ -1,11 +1,11 @@
 #include "../Person/Person.h"
-#include "TemplateList.h"
-#include "TemplateListItem.h"
+#include "List.h"
+#include "ListItem.h"
 
 template <typename T>
-void TemplateList<T>::Add(T* value)
+void List<T>::Add(T* value)
 {
-	TemplateListItem<T>* temp = new TemplateListItem<T>;
+	ListItem<T>* temp = new ListItem<T>;
 	temp->value = *value;
 
 	if (_head == NULL)
@@ -14,7 +14,7 @@ void TemplateList<T>::Add(T* value)
 	}
 	else
 	{
-		TemplateListItem<T>* beforeTemp = _head;
+		ListItem<T>* beforeTemp = _head;
 		while (beforeTemp->nextValue != NULL)
 		{
 			beforeTemp = beforeTemp->nextValue;
@@ -26,11 +26,11 @@ void TemplateList<T>::Add(T* value)
 template <typename T>
 //TODO: Нарушает общепринятое именование. Add - добавление в конец списка. Insert - вставка по индексу. Переименовать
 //исправлено
-void TemplateList<T>::Insert(T* value, int index)
+void List<T>::Insert(T* value, int index)
 {
 	int countIndex = index;
-	TemplateListItem<T>* temp = _head;
-	TemplateListItem<T>* newTemp = new TemplateListItem<T>;
+	ListItem<T>* temp = _head;
+	ListItem<T>* newTemp = new ListItem<T>;
 	newTemp->value = *value;
 
 	if (_head == NULL)//если список пуст
@@ -60,9 +60,9 @@ void TemplateList<T>::Insert(T* value, int index)
 }
 
 template <typename T>
-void TemplateList<T>::RemoveAt(int index)
+void List<T>::RemoveAt(int index)
 {
-	TemplateListItem<T>* temp = _head;
+	ListItem<T>* temp = _head;
 	int numberIndex = 0;
 	if (index >= 0)//индекс должен входить в область созданых элементов
 	{
@@ -86,7 +86,7 @@ void TemplateList<T>::RemoveAt(int index)
 		}
 		else if (temp->nextValue == NULL)//если выбраный элемент = последнему элементу списка
 		{
-			TemplateListItem<T>* beforeTemp = _head;
+			ListItem<T>* beforeTemp = _head;
 			while (beforeTemp->nextValue != temp)
 			{
 				beforeTemp = beforeTemp->nextValue;
@@ -96,7 +96,7 @@ void TemplateList<T>::RemoveAt(int index)
 		}
 		else
 		{
-			TemplateListItem<T>* beforeTemp = _head;
+			ListItem<T>* beforeTemp = _head;
 			while (beforeTemp->nextValue != temp)
 			{
 				beforeTemp = beforeTemp->nextValue;
@@ -108,14 +108,14 @@ void TemplateList<T>::RemoveAt(int index)
 }
 
 template <typename T>
-void TemplateList<T>::Clear()
+void List<T>::Clear()
 {
-	TemplateListItem<T>* temp = _head;
+	ListItem<T>* temp = _head;
 	while (temp != NULL)
 	{
 		if (temp->nextValue != NULL)
 		{
-			TemplateListItem<T>* newTemp = temp;
+			ListItem<T>* newTemp = temp;
 			temp = temp->nextValue;
 			delete newTemp;
 		}
@@ -129,9 +129,9 @@ void TemplateList<T>::Clear()
 }
 
 template <typename T>
-void TemplateList<T>::Show()
+void List<T>::Show()
 {
-	TemplateListItem<T>* temp = _head;
+	ListItem<T>* temp = _head;
 	if (_head == NULL)
 	{
 		cout << "List is empty!" << endl;
@@ -147,31 +147,8 @@ void TemplateList<T>::Show()
 	cout << "----------------------------------" << endl;
 }
 
-//TODO: Этой функции быть не должно. Вывод списка персон на экран должен работать через единый метод Show()
 template <typename T>
-void TemplateList<T>::ShowPerson()
-{
-	TemplateListItem<T>* temp = _head;
-	if (_head == NULL)
-	{
-		cout << "List is empty!" << endl;
-	}
-	else
-	{
-		while (temp != NULL)
-		{
-			cout << endl << "Фамилия: " << temp->value.Surname
-			<< " | Имя: " << temp->value.Name
-			<< " | Возраст: " << temp->value.Age
-			<< " | Пол: " << temp->value.Sex << endl;
-			temp = temp->nextValue;
-		}
-	}
-	cout << "----------------------------------" << endl;
-}
-
-template <typename T>
-TemplateList<T>::~TemplateList()
+List<T>::~List()
 {
 	Clear();
 }

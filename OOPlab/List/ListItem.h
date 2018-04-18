@@ -4,7 +4,7 @@
 template <class T>
 //TODO: Переименовать без 7
 //исправлено
-class TemplateListItem
+class ListItem
 {
 public:
 	//элемент списка
@@ -15,5 +15,5 @@ public:
 	//указатель на следующий элемент списка
 	//TODO: Переименовать по RSDN
 	//исправлено
-	TemplateListItem* nextValue = NULL;
+	ListItem<T>* nextValue = NULL;
 };

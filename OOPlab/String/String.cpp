@@ -278,38 +278,36 @@ char* ReplaceSpacesOnTabs(char* string, int numberSpace)
 
 Person ReadPerson()
 {
-	int sex;
+	bool sex;
+	int value;
+	string stringValue;
 	Person newPerson;
 	cout << "Введите фамилию: ";
-	cin >> newPerson.Surname;
+	cin >> stringValue;
+	newPerson.SetSurname(stringValue);
 	cout << endl << "Введите имя: ";
-	cin >> newPerson.Name;
+	cin >> stringValue;
+	newPerson.SetName(stringValue);
 	cout << endl << "Введите возраст: ";
-	cin >> newPerson.Age;
+	cin >> value;
+	newPerson.SetAge(value);
 	cout << endl << "Введите пол: ";
-
-	do
+	cin >> sex;
+	if (sex == true)
 	{
-		cin >> sex;
-	} while (sex != 0 && sex != 1);
-	switch (sex)
+		newPerson.SetSex(Male);
+	}
+	else
 	{
-		case Female:
-			newPerson.Sex = Female;
-			break;
-		case Male:
-			newPerson.Sex = Male;
-			break;
-		default:
-			break;
+		newPerson.SetSex(Female);
 	}
 	return newPerson;
 }
 
 void PrintPerson(Person& person)
 {
-	cout << "Фамилия: " << person.Surname << endl;
-	cout << "Имя: " << person.Name << endl;
-	cout << "Возраст: " << person.Age << endl;
-	cout << "Пол: " << person.Sex << endl;
+	cout << "Фамилия: " << person.GetSurname() << endl;
+	cout << "Имя: " << person.GetName() << endl;
+	cout << "Возраст: " << person.GetAge() << endl;
+	cout << "Пол: " << person.GetSex() << endl;
 }

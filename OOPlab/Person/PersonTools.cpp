@@ -16,20 +16,20 @@ Person* PersonTools::GetRandomPerson(Sex sex)
 	string nameFemale[] = { "Katherine","Roxanne","Dorothy","Candace","Joan",
 		"Helen", "Christine", "Mary", "Roberta","Karen",
 		"Emily","Patricia","Elfreda","Camilla","Sarah" };
-	person->Surname = surname[rand() % 15];
+	person->SetSurname(surname[rand() % 15]);
 
 	if (sex)
 	{
-		person->Name = nameMale[rand() % 15];
-		person->Sex = Male;
+		person->SetName(nameMale[rand() % 15]);
+		person->SetSex(Male);
 	}
 	else
 	{
-		person->Name = nameFemale[rand() % 15];
-		person->Sex = Female;
+		person->SetName(nameFemale[rand() % 15]);
+		person->SetSex(Female);
 	}
 
-	person->Age = 1 + rand() % 60;
+	person->SetAge(1 + rand() % 60);
 
 	return person;
 }
@@ -46,20 +46,20 @@ Adult* PersonTools::GetRandomAdult(Sex sex)
 	string nameFemale[] = { "Katherine","Roxanne","Dorothy","Candace","Joan",
 		"Helen", "Christine", "Mary", "Roberta","Karen",
 		"Emily","Patricia","Elfreda","Camilla","Sarah" };
-	person->Surname = surname[rand() % 15];
+	person->SetSurname(surname[rand() % 15]);
 
 	if (sex)
 	{
-		person->Name = nameMale[rand() % 15];
-		person->Sex = Male;
+		person->SetName(nameMale[rand() % 15]);
+		person->SetSex(Male);
 	}
 	else
 	{
-		person->Name = nameFemale[rand() % 15];
-		person->Sex = Female;
+		person->SetName(nameFemale[rand() % 15]);
+		person->SetSex(Female);
 	}
 
-	person->Age = 18 + rand() % 60;
+	person->SetAge(18 + rand() % 60);
 
 	return person;
 }
@@ -76,20 +76,20 @@ Child* PersonTools::GetRandomChild(Sex sex)
 	string nameFemale[] = { "Katherine","Roxanne","Dorothy","Candace","Joan",
 		"Helen", "Christine", "Mary", "Roberta","Karen",
 		"Emily","Patricia","Elfreda","Camilla","Sarah" };
-	person->Surname = surname[rand() % 15];
+	person->SetSurname(surname[rand() % 15]);
 
 	if (sex)
 	{
-		person->Name = nameMale[rand() % 15];
-		person->Sex = Male;
+		person->SetName(nameMale[rand() % 15]);
+		person->SetSex(Male);
 	}
 	else
 	{
-		person->Name = nameFemale[rand() % 15];
-		person->Sex = Female;
+		person->SetName(nameFemale[rand() % 15]);
+		person->SetSex(Female);
 	}
 
-	person->Age = 1 + rand() % 17;
+	person->SetAge(1 + rand() % 17);
 
 	return person;
 }

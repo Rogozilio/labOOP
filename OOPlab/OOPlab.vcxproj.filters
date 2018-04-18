@@ -37,12 +37,12 @@
     <Filter Include="Source Files\Person">
       <UniqueIdentifier>{0a390abc-eb2b-4b67-a0e9-11aa38da5d65}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Menu">
+      <UniqueIdentifier>{5eaa1b3b-81a3-4880-b4a9-9ed959cee36c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="menu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CheckSymbol.cpp">
@@ -66,11 +66,26 @@
     <ClCompile Include="Person\Child.cpp">
       <Filter>Source Files\Person</Filter>
     </ClCompile>
-    <ClCompile Include="List\TemplateList.cpp">
-      <Filter>Source Files\List</Filter>
-    </ClCompile>
     <ClCompile Include="String\String.cpp">
       <Filter>Source Files\String</Filter>
+    </ClCompile>
+    <ClCompile Include="List\List.cpp">
+      <Filter>Source Files\List</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu\MenuList.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu\MenuPersonList.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu\MenuPolymorphism.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu\MenuStack.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu\MenuString.cpp">
+      <Filter>Source Files\Menu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -104,14 +119,14 @@
     <ClInclude Include="String\MenuEnum.h">
       <Filter>Header Files\String</Filter>
     </ClInclude>
-    <ClInclude Include="List\TemplateList.h">
-      <Filter>Header Files\List</Filter>
-    </ClInclude>
-    <ClInclude Include="List\templateListItem.h">
-      <Filter>Header Files\List</Filter>
-    </ClInclude>
     <ClInclude Include="String\String.h">
       <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="List\List.h">
+      <Filter>Header Files\List</Filter>
+    </ClInclude>
+    <ClInclude Include="List\ListItem.h">
+      <Filter>Header Files\List</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

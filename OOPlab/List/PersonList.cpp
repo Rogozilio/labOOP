@@ -29,7 +29,7 @@ int PersonList::GetCount()
 void PersonList::Add(Person* person)
 {
 	PersonListItem* temp = new PersonListItem;
-	temp->person = *person;
+	temp->person = person;
 
 	if (_head == NULL)
 	{
@@ -55,7 +55,7 @@ Person* PersonList::Find(int index)
 		{
 			temp = temp->next;
 		}
-		return &temp->person;
+		return temp->person;
 	}
 }
 
@@ -64,7 +64,7 @@ int PersonList::IndexOf(Person* person)
 	PersonListItem* temp = _head;
 	for (int i = 0; i < GetCount(); i++)
 	{
-		if (&temp->person == person)
+		if (temp->person == person)
 		{
 			return i;
 		}
@@ -78,7 +78,7 @@ void PersonList::Remove(Person* person)
 	PersonListItem* temp = _head;
 	for (int i = 0; i < GetCount(); i++)
 	{
-		if (&temp->person == person)
+		if (temp->person == person)
 		{
 			RemoveAt(i);
 		}
@@ -164,10 +164,10 @@ void PersonList::Show()
 	{
 		while (temp != NULL)
 		{
-			cout << endl << "Фамилия: " << temp->person.Surname
-				<< " | Имя: " << temp->person.Name
-				<< " | Возраст: " << temp->person.Age
-				<< " | Пол: " << temp->person.Sex << endl;
+			cout << endl << "Фамилия: " << temp->person->GetSurname()
+				<< " | Имя: " << temp->person->GetName()
+				<< " | Возраст: " << temp->person->GetAge()
+				<< " | Пол: " << temp->person->GetSex() << endl;
 			temp = temp->next;
 		}
 	}

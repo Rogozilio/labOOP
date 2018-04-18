@@ -32,7 +32,7 @@ string Adult::GetDescription()
 	{
 		//TODO: заменить на +=
 		//исправлено
-		infoPerson += "married on " + MarriedOn->Name + ' ' + MarriedOn->Surname + ", " + WorkPlace;
+		infoPerson += "married on " + MarriedOn->GetName() + ' ' + MarriedOn->GetSurname() + ", " + WorkPlace;
 	}
 	else
 	{

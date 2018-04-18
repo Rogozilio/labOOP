@@ -27,15 +27,15 @@ string Child ::GetDescription()
 	
 	if (Father != NULL && Mother != NULL)
 	{
-		infoPerson += "parents are " + Mother->Name + ' ' + Mother->Surname + " and " + Father->Name + ' ' + Father->Surname;
+		infoPerson += "parents are " + Mother->GetName() + ' ' + Mother->GetSurname() + " and " + Father->GetName() + ' ' + Father->GetSurname();
 	}
 	else if (Father != NULL)
 	{
-		infoPerson += "father is " + Father->Name + ' ' + Father->Surname;
+		infoPerson += "father is " + Father->GetName() + ' ' + Father->GetSurname();
 	}
 	else if(Mother != NULL)
 	{
-		infoPerson +=  "mother is " + Mother->Name + ' ' + Mother->Surname;
+		infoPerson +=  "mother is " + Mother->GetName() + ' ' + Mother->GetSurname();
 	}
 	else
 	{

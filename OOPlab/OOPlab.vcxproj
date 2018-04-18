@@ -22,32 +22,32 @@
     <ProjectGuid>{730D435E-F387-4C81-8A61-C9401B580AED}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>OOPlab</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -152,10 +152,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CheckSymbol.cpp" />
-    <ClCompile Include="List\TemplateList.cpp" />
+    <ClCompile Include="List\List.cpp" />
     <ClCompile Include="List\PersonList.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="menu.cpp" />
+    <ClCompile Include="Menu\MenuList.cpp" />
+    <ClCompile Include="Menu\MenuPersonList.cpp" />
+    <ClCompile Include="Menu\MenuPolymorphism.cpp" />
+    <ClCompile Include="Menu\MenuStack.cpp" />
+    <ClCompile Include="Menu\MenuString.cpp" />
     <ClCompile Include="Person\Adult.cpp" />
     <ClCompile Include="Person\Child.cpp" />
     <ClCompile Include="Person\Person.cpp" />
@@ -164,8 +168,8 @@
     <ClCompile Include="String\String.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="List\TemplateList.h" />
-    <ClInclude Include="List\templateListItem.h" />
+    <ClInclude Include="List\List.h" />
+    <ClInclude Include="List\ListItem.h" />
     <ClInclude Include="List\PersonList.h" />
     <ClInclude Include="List\PersonListItem.h" />
     <ClInclude Include="Person\Adult.h" />

@@ -6,7 +6,7 @@ class PersonListItem
 {
 public:
 	//элемент списка
-	Person person;
+	Person* person;
 	//указатель на следующий элемент списка
 	PersonListItem* next = NULL;
 };

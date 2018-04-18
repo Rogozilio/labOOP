@@ -4,7 +4,7 @@
 
 class PersonList
 {
-private: 
+private:
 	//указатель на голову списка
 	PersonListItem* _head = NULL; 
 	//количество элементов в списке
